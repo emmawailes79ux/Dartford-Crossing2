@@ -1,0 +1,145 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check your answers
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">Check your answers before making a payment</h1>
+
+      <h2 class="govuk-heading-m">Account details</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Full Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Alex Lee
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden">full name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            72 Guild Street
+            <br>London
+            <br>SE23 6FH
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> contact information</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Vehicle Registration
+          </dt>
+          <dd class="govuk-summary-list__value">
+            LO62NRO
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> date of birth</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contact details
+          </dt>
+          <dd class="govuk-summary-list__value">
+              <p>alex.lee@gmail.com</p>
+              <p>0789912345</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> contact details</span>
+            </a>
+          </dd>
+        </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Notifications
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Text message and Email
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change
+                <span class="govuk-visually-hidden">SMS</span>
+              </a>
+            </dd>
+          </div>
+      </dl>
+        <h2 class="govuk-heading-m">Payment methods</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Paying for crossings
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Pre Pay
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden">top-up method</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Top up method
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Auto Top-up
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> automatic top up</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+    <!--  <h2 class="govuk-heading-m">Now send your application</h2>
+
+    <!--  <p>By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+-->
+      <form action="payment3a" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Agree and pay
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
