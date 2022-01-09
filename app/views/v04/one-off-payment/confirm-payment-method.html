@@ -6,7 +6,6 @@ GOV.UK Prototype Kit
 
 {% block content %}
 
-
 {% include "./one-off-payment-body-head.html" %}
 <a href="#" style="cursor: pointer;" class="govuk-back-link">Back</a>
 <div class="govuk-grid-row">
@@ -38,7 +37,7 @@ GOV.UK Prototype Kit
                     </th>
                     {%else%}
                     <th scope="row" class="govuk-table__header">
-                       
+
                     </th>
                     {% endif %}
                     {% if data['vrm-1'] | length%}
@@ -70,7 +69,7 @@ GOV.UK Prototype Kit
                         <span class="govuk-caption-l">
                             {{data['vrm-' + loop.index][0]}}
                         </span>
-                       
+
                         {% endif %}
                         {% endfor %} -->
                         <!-- <details class="govuk-details govuk-!-margin-bottom-0" data-module="govuk-details">
@@ -97,7 +96,7 @@ GOV.UK Prototype Kit
                     <td class="govuk-table__cell"><a href="javascript:void(0)">Change</a>
                     </td>
                 </tr>
-                
+
             </tbody>
         </table>
 
