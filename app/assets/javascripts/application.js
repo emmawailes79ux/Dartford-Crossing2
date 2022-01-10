@@ -8,3 +8,9 @@ if (window.console && window.console.info) {
 $(document).ready(function () {
   window.GOVUKFrontend.initAll()
 })
+$("[id='vrn']").click(() => {
+  $("[id='vrn']").val("LO62 NRO");
+});
+$("[id='plateSubmit']").mouseover(() => {
+  $("[id='vrn']").val("LO62 NRO");
+});
