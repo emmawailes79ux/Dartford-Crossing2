@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Question page
+  What would you like to do?
 {% endblock %}
 
 {% block beforeContent %}
@@ -22,8 +22,8 @@
           {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
           {{ govukRadios({
-            idPrefix: "start-choose",
-            name: "start-choose",
+            idPrefix: "landing",
+            name: "landing",
             fieldset: {
               legend: {
                 text: "What would you like to do?",

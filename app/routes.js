@@ -26,7 +26,7 @@ router.get('/examples/template-data', function(req, res) {
 // Landing page 01 //
 
 router.post('/v01/landing', function (req, res) {
-  const editChoice = req.session.data['start-choose']
+  const editChoice = req.session.data['landing']
   if (editChoice === 'one-off-payment') {
     res.redirect('/v01/one-off-payment/pay-crossing')
   } else if (editChoice === 'create-account') {
@@ -52,7 +52,6 @@ router.post('/v02/landing', function (req, res) {
 });
 
 // Landing page 03 //
-
 router.post('/v03/landing', function (req, res) {
   const editChoice = req.session.data['start-choose']
   if (editChoice === 'one-off-payment') {
@@ -76,6 +75,45 @@ router.post('/v04/landing', function (req, res) {
   }
   else if (editChoice === 'resolve-pcn') {
     res.redirect('/v04/resolve-pcn/payConfirm')
+  }
+});
+
+///////vehicle /////
+
+
+
+router.post('/employer/archive-old-v03/job-add-3b', function (req, res) {
+  const editChoice = req.session.data['multiple-locations']
+
+  if (editChoice === 'multiple') {
+    res.redirect('/employer/archive-old-v03/job-add-3d')
+  } else if (editChoice === 'one-location') {
+    res.redirect('/employer/archive-old-v03/job-add-3c')
+  }
+});
+
+
+//////Top up - payment1///
+router.post('v04/create-account/payment1', function (req, res) {
+  const editChoice = req.session.data['start-choose']
+  if (editChoice === 'Prepay') {
+    res.redirect('v04/create-account/payment2')
+  } else if (editChoice === 'PAYG') {
+    res.redirect('v04/create-account/payment2b')
+  }
+});
+
+
+//////Top up - payment2///
+router.post('/v01/landing', function (req, res) {
+  const editChoice = req.session.data['start-choose']
+  if (editChoice === 'one-off-payment') {
+    res.redirect('/v01/one-off-payment/pay-crossing')
+  } else if (editChoice === 'create-account') {
+    res.redirect('/v01/create-account/create-account')
+  }
+  else if (editChoice === 'resolve-pcn') {
+    res.redirect('/v01/resolve-pcn/payConfirm')
   }
 });
 

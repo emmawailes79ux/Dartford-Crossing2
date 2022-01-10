@@ -18,7 +18,8 @@
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             </legend>
-      <form action="email" method="post" class="form">
+
+              <form action="email" method="post">
 
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
@@ -54,10 +55,36 @@
             </dd>
           </div>
         </dl>
+<!--
+{{ govukRadios({
+              idPrefix: "vehicle-check",
+              name: "vehicle-check",
+              fieldset: {
+                legend: {
+                  text: "",
+                  isPageHeading: true,
+                  classes: "govuk--inline"
+
+
+                }
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "Yes"
+                },
+                {
+                  value: "no",
+                  text: "No, search again"
+                }
+              ]
+            }) }}-->
+
+
 
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
-            <div id="changed-name-hint" class="govuk-hint">
+          <fieldset class="govuk-fieldset" aria-describedby="vehicle-confirm">
+            <div id="vehicle-confirm" class="govuk-hint">
             </div>
             <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
               <div class="govuk-radios__item">
@@ -73,7 +100,6 @@
                 </label>
               </div>
             </div>
-
   </fieldset>
 </div>
 
@@ -116,7 +142,6 @@
 If your vehicle details are incorrect you may <br>need to <a href='https://www.gov.uk/change-vehicle-details-registration-certificate
 '>update them</a>.</div>
         </details>
-
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 
       </form>
