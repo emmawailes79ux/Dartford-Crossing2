@@ -3,7 +3,7 @@ const router = express.Router()
 
 // Add your routes here - above the module.exports line
 
-module.exports = router
+
 
 // create-start //
 
@@ -75,8 +75,86 @@ router.post('/v04/landing', function (req, res) {
     res.redirect('/v04/create-account/create-start')
   }
   else if (editChoice === 'resolve-pcn') {
-    res.redirect('/v04/resolve-pcn/payConfirm')
+    //res.redirect('/v04/resolve-pcn/payConfirm')
+    res.redirect('/v04/resolve-pcn/flow1')
   }
+});
+
+// Resolve PCN
+router.get("/v04/resolve-pcn/flow1", function (req, res) {
+  res.redirect('/v04/resolve-pcn/landingRemod');
+});
+
+router.get("/v04/resolve-pcn/flow2", function (req, res) {
+  res.redirect(`/v04/resolve-pcn/vehicleRemod`);
+});
+
+router.get("/v04/resolve-pcn/flow2Alt", function (req, res) {
+  res.redirect(`/v04/resolve-pcn/vehicleRemodAlt`);
+});
+
+router.get("/v04/resolve-pcn/flow4", function (req, res) {
+  res.redirect(`/v04/resolve-pcn/outstandingRemod`);
+});
+
+router.get("/v04/resolve-pcn/flow5b", function (req, res) {
+  res.redirect(`/v04/resolve-pcn/pcn_details`);
+});
+
+router.get("/v04/resolve-pcn/flow5a", function (req, res) {
+  res.redirect(`/v04/resolve-pcn/pcn_details_b`);
+});
+
+router.get("/v04/resolve-pcn/flow5details", function (req, res) {
+  res.redirect(`/v04/resolve-pcn//pcnDetails`);
+});
+
+router.get("/v04/resolve-pcn/flow6", function (req, res) {
+  res.redirect(`/v04/resolve-pcn//payDetails`);
+});
+
+router.get("/v04/resolve-pcn/flow6details", function (req, res) {
+  res.redirect(`/v04/resolve-pcn/pcnDetailsPay`);
+});
+
+router.get("/v04/resolve-pcn/flow7", function (req, res) {
+  res.redirect(`/v04/resolve-pcn//confirmPay`);
+});
+
+router.get("/v04/resolve-pcn/flow8", function (req, res) {
+  res.redirect(`/v04/resolve-pcn/payConfirm`);
+});
+
+router.get("/v04/resolve-pcn/flow9", function (req, res) {
+  res.redirect(`/v04/resolve-pcn/challengePCNremod`);
+});
+
+router.get("/v04/resolve-pcn/flow10", function (req, res) {
+  res.redirect(`/v04/resolve-pcn/pcnChallengeReasons`);
+});
+
+router.get("/v04/resolve-pcn/flow11", function (req, res) {
+  res.redirect(`/v04/resolve-pcn/supportingEvidence`);
+});
+
+router.get("/v04/resolve-pcn/flow13", function (req, res) {
+  res.redirect(`/v04/resolve-pcn//challengeSummary`);
+});
+
+router.get("/v04/resolve-pcn/flow14", function (req, res) {
+  res.redirect(`/v04/resolve-pcn//challengePCNchange`);
+});
+
+router.get("/v04/resolve-pcn/flow15", function (req, res) {
+  res.redirect(`/v04/resolve-pcn//pcnChallengeReasonsChange`);
+});
+
+router.get("/v04/resolve-pcn/flow16", function (req, res) {
+  res.redirect(`/v04/resolve-pcn//supportingEvidenceChange`);
+});
+
+router.get("/v04/resolve-pcn/flow17", function (req, res) {
+  res.redirect(`/v04/resolve-pcn//challengeConfirm`);
 });
 
 //router.post('/landing', function (req, res) {
@@ -90,3 +168,12 @@ router.post('/v04/landing', function (req, res) {
 //    res.redirect('/v01')
 //  }
 //});
+
+// one off payment
+router.post("/v04/one-off-payment/pay-crossing", function (req, res) {
+  
+    res.redirect("/v04/one-off-payment/vehicle-info");
+  
+});
+
+module.exports = router
