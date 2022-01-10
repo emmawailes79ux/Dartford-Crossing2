@@ -60,7 +60,7 @@ router.post('/v04/landing', function (req, res) {
 ///is this your vehicle///
 
 router.post('/v04/create-account/confirm-vehicle', function (req, res) {
-  const editChoice = req.session.data['vehicle-check']
+  const editChoice = req.session.data['check']
   if (editChoice == 'yes'){
     res.redirect('/create-account/email')
   } else if (editChoice === 'no'){
@@ -70,29 +70,19 @@ router.post('/v04/create-account/confirm-vehicle', function (req, res) {
 
 
 //////Top up - payment1///
-router.post('v04/create-account/payment1', function (req, res) {
-  const editChoice = req.session.data['start-choose']
-  if (editChoice === 'Prepay') {
-    res.redirect('v04/create-account/payment2')
-  } else if (editChoice === 'PAYG') {
-    res.redirect('v04/create-account/payment2b')
-  }
-});
+
+
+///router.post('v04/create-account/payment1', function (req, res) {
+///  const editChoice = req.session.data['topup']
+///  if (editChoice === 'Prepay') {
+//    res.redirect('v04/create-account/payment2')
+//  } else if (editChoice === 'PAYG') {
+//    res.redirect('v04/create-account/payment2b')
+//  }
+//});
 
 
 
-//////Top up - payment2///
-router.post('/v01/landing', function (req, res) {
-  const editChoice = req.session.data['start-choose']
-  if (editChoice === 'one-off-payment') {
-    res.redirect('/v01/one-off-payment/pay-crossing')
-  } else if (editChoice === 'create-account') {
-    res.redirect('/v01/create-account/create-account')
-  }
-  else if (editChoice === 'resolve-pcn') {
-    res.redirect('/v01/resolve-pcn/payConfirm')
-  }
-});
 
 
 module.exports = router

@@ -17,7 +17,7 @@ Step 3 - Your vehicle
           <h1 class="govuk-heading-l">Is this your vehicle?</h1>
 
 
-            <form class="form" method="post" action="vehicle-check">
+            <form class="form" method="post" action="check">
 
           <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
@@ -60,7 +60,7 @@ Step 3 - Your vehicle
               name: "vehicle-check",
               fieldset: {
                 legend: {
-                  text: "",
+                  text: "test",
                   isPageHeading: true,
                   classes: "govuk-fieldset__legend--l"
                 }
@@ -78,57 +78,6 @@ Step 3 - Your vehicle
             }) }}
 
 
-
-      <!--  <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="vehicle-confirm">
-            <div id="vehicle-confirm" class="govuk-hint">
-            </div>
-            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="yes-vehicle-confirm" name="yes-vehicle-confirm" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label" for="yes-vehicle-confirm">
-                  Yes
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="no-vehicle-confirm" name="no-vehicle-confirm" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label" for="no-vehicle-confirm">
-                  No, search again
-                </label>
-              </div>
-            </div>
-  </fieldset>
-</div>-->
-
-      <!--  <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              <h1 class="govuk-fieldset__heading">
-              </h1>
-            </legend>
-            <div class="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="vehicle-type-car" name="vehicle-type" type="radio" value="Car" {{ checked("vehicle-type", "Car") }}>
-                <label class="govuk-label govuk-radios__label" for="vehicle-type-car">
-                  Car (with or without trailers),  Motorhomes, Passenger vans, Buses with less than 8 seats
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="vehicle-type-lorry" name="vehicle-type" type="radio" value="Lorry" {{ checked("vehicle-type", "Lorry") }}>
-                <label class="govuk-label govuk-radios__label" for="vehicle-type-lorry">
-                  Goods vans, including car-based vans without side windows behind the driver.
-                  Vans / buses with more than 8 seats in addition to the driver's seat.
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="vehicle-type-motorcycle" name="vehicle-type" type="radio" value="Motorcycle" {{ checked("vehicle-type", "Motorcycle") }}>
-                <label class="govuk-label govuk-radios__label" for="vehicle-type-motorcycle">
-                  Motorcycle (2 or 3 wheels) or Quadricycle/Quad bikes
-                </label>
-              </div>
-            </div>
-          </fieldset>
-        </div>-->
         <details class="govuk-details" data-module="govuk-details">
           <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">
