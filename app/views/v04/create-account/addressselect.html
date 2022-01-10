@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Select your address
+Select your address
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,19 +13,20 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="vehicle-registration" method="post">
+      <form class="form" action="vehicle-registration" method="post">
         <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Step 2 - Where you live</h1>
           <fieldset class="govuk-fieldset">
-            <h1 class="govuk-heading-l">What is your address?</h1>
-          <div class="govuk-inset-text">
-              Your postcode has been recognised as a valid Local Resident Discount Scheme (LRDS) postcode.<br><a href='../create-account/lrds/LRDS-start'>Apply for your LRDS discount</a>. 
-            </div>
-        <div class="govuk-form-group">
-            <label class="govuk-label" for="address-postcode">
-            <!--  Select your address-->
-            </label>
-            <select class="govuk-select" id="sort" name="sort">
+            <h2 class="govuk-heading-l">What is your address?</h2>
 
+          <div class="govuk-inset-text">
+              Your postcode has been recognised as a valid Local Resident Discount Scheme (LRDS) postcode.<br><a href='../lrds/LRDS-start'>Apply for your LRDS discount</a>.
+            </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="address-postcode">
+            </label>
+
+            <select class="govuk-select" id="select-address" name="select-address">
                 <option value="addressfound" selected>8 addresses found</option>
                 <option value="published">1 Bark Road, Dartford, Kent DA1 1DY</option>
                 <option value="published">3 Bark Road, Dartford, Kent DA1 1DY</option>
@@ -35,10 +36,8 @@
                 <option value="published">11 Bark Road, Dartford, Kent DA1 1DY</option>
                 <option value="published">15 Bark Road, Dartford, Kent DA1 1DY</option>
                 <option value="published">17 Bark Road, Dartford, Kent DA1 1DY</option>
-              </select>
+            </select>
 
-          <!--  <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text" autocomplete="postal-code"></div>
--->
         </fieldset>
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
@@ -56,7 +55,6 @@
         <p class='govuk-body'><a href='addressmanual'>Enter your address manually</a></p>
 
       </form>
-
     </div>
   </div>
 

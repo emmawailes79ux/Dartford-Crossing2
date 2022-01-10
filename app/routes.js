@@ -3,28 +3,9 @@ const router = express.Router()
 
 // Add your routes here - above the module.exports line
 
-module.exports = router
-
-// create-start //
-
-router.post('/v01/create-account/step4-code', function (req, res) {
-  const editChoice = req.session.data['step4-code']
-//if user chooses mobile authenticator redirect to app
-  if (editChoice === 'authenticator-app') {
-    res.redirect('/v01/create-account/2fa-app')
-    //if user chooses mobile phone redirect to mobile
-
-  } else if (editChoice === 'mobile-phone') {
-    res.redirect('/v01/create-account/2fa-mobile')
-  }
-});
-
-router.get('/examples/template-data', function(req, res) {
-    res.render('examples/template-data', { 'name' : 'Foo' });
-});
+////Landing page choices//////
 
 // Landing page 01 //
-
 router.post('/v01/landing', function (req, res) {
   const editChoice = req.session.data['landing']
   if (editChoice === 'one-off-payment') {
@@ -38,7 +19,6 @@ router.post('/v01/landing', function (req, res) {
 });
 
 // Landing page 02 //
-
 router.post('/v02/landing', function (req, res) {
   const editChoice = req.session.data['start-choose']
   if (editChoice === 'one-off-payment') {
@@ -65,7 +45,6 @@ router.post('/v03/landing', function (req, res) {
 });
 
 // Landing page 04 //
-
 router.post('/v04/landing', function (req, res) {
   const editChoice = req.session.data['start-choose']
   if (editChoice === 'one-off-payment') {
@@ -78,17 +57,14 @@ router.post('/v04/landing', function (req, res) {
   }
 });
 
-///////vehicle /////
+///is this your vehicle///
 
-
-
-router.post('/employer/archive-old-v03/job-add-3b', function (req, res) {
-  const editChoice = req.session.data['multiple-locations']
-
-  if (editChoice === 'multiple') {
-    res.redirect('/employer/archive-old-v03/job-add-3d')
-  } else if (editChoice === 'one-location') {
-    res.redirect('/employer/archive-old-v03/job-add-3c')
+router.post('/v04/create-account/confirm-vehicle', function (req, res) {
+  const editChoice = req.session.data['vehicle-check']
+  if (editChoice == 'yes'){
+    res.redirect('/create-account/email')
+  } else if (editChoice === 'no'){
+    res.redirect('/create-account/vehicle-registration')
   }
 });
 
@@ -104,6 +80,7 @@ router.post('v04/create-account/payment1', function (req, res) {
 });
 
 
+
 //////Top up - payment2///
 router.post('/v01/landing', function (req, res) {
   const editChoice = req.session.data['start-choose']
@@ -117,14 +94,5 @@ router.post('/v01/landing', function (req, res) {
   }
 });
 
-//router.post('/landing', function (req, res) {
-//  const editChoice = req.session.data['']
 
-//  if (editChoice === '') {
-//    res.redirect('/')
-//  } else if (editChoice === '') {
-//    res.redirect('/')
-//  } else if (editChoice === 'not') {
-//    res.redirect('/v01')
-//  }
-//});
+module.exports = router

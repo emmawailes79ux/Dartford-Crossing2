@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Example - Passing data
+Step 3 - Your vehicle
 {% endblock %}
 
 {% block beforeContent %}
@@ -15,13 +15,11 @@
       <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Step 3 - Your vehicle</h1>
         <fieldset class="govuk-fieldset">
           <h1 class="govuk-heading-l">Is this your vehicle?</h1>
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            </legend>
 
-              <form action="email" method="post">
 
-        <dl class="govuk-summary-list">
+            <form class="form" method="post" action="vehicle-check">
+
+          <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Registration number
@@ -55,17 +53,16 @@
             </dd>
           </div>
         </dl>
-<!--
+
 {{ govukRadios({
+              classes: "govuk-radios--inline",
               idPrefix: "vehicle-check",
               name: "vehicle-check",
               fieldset: {
                 legend: {
                   text: "",
                   isPageHeading: true,
-                  classes: "govuk--inline"
-
-
+                  classes: "govuk-fieldset__legend--l"
                 }
               },
               items: [
@@ -78,11 +75,11 @@
                   text: "No, search again"
                 }
               ]
-            }) }}-->
+            }) }}
 
 
 
-        <div class="govuk-form-group">
+      <!--  <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="vehicle-confirm">
             <div id="vehicle-confirm" class="govuk-hint">
             </div>
@@ -101,7 +98,7 @@
               </div>
             </div>
   </fieldset>
-</div>
+</div>-->
 
       <!--  <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
