@@ -57,14 +57,15 @@ router.post('/v04/landing', function (req, res) {
   }
 });
 
+/////////////////////////create account////////////////////////
 ///is this your vehicle///
 
-router.post('/v04/create-account/confirm-vehicle', function (req, res) {
-  const editChoice = req.session.data['check']
-  if (editChoice == 'yes'){
-    res.redirect('/create-account/email')
-  } else if (editChoice === 'no'){
-    res.redirect('/create-account/vehicle-registration')
+router.post('/awcheck', function (req, res) {
+  var editChoice = req.session.data['vehicle-check']
+  if (editChoice == "yes"){
+    res.redirect('v04/create-account/email')
+  } else if (editChoice === "no"){
+    res.redirect('v04/create-account/vehicle-registration')
   }
 });
 
@@ -82,6 +83,10 @@ router.post('/v04/create-account/confirm-vehicle', function (req, res) {
 //});
 
 
+/////////////////////////one off payment flow////////////////////////
+
+
+/////////////////////////resolve pcn////////////////////////
 
 
 
