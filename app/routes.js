@@ -3,7 +3,7 @@ const router = express.Router()
 
 // Add your routes here - above the module.exports line
 
-////Landing page choices//////
+////Landing page choices //////
 
 // Landing page 01 //
 router.post('/v01/landing', function (req, res) {
@@ -57,8 +57,8 @@ router.post('/v04/landing', function (req, res) {
   }
 });
 
-/////////////////////////create account////////////////////////
-///is this your vehicle///
+/////////////////////////create account v04////////////////////////
+///is this your vehicle v04///
 
 router.post('/awcheck', function (req, res) {
   var editChoice = req.session.data['vehicle-check']
@@ -70,12 +70,10 @@ router.post('/awcheck', function (req, res) {
 });
 
 
-//////Top up - payment1///
+//////Top up - payment1 v04///
 router.post('/CheckPaymentOption', function (req, res) {
 
   var payoption = req.session.data['type-choose']
-
-  // Check whether the variable matches a condition
   if (payoption == "Prepay"){
     // Send user to Prepay page
     res.redirect('v04/create-account/payment2')
@@ -86,22 +84,14 @@ router.post('/CheckPaymentOption', function (req, res) {
 
 });
 
-///////auto pay or manual pay///////
-// Run this code when a form is submitted to 'Payment1'
-router.post('/CheckPaymentOption', function (req, res) {
-
-  // Make a variable and give it the value from 'start-choose'
-  var payoption = req.session.data['start-choose']
-
-  // Check whether the variable matches a condition
-  if (payoption == "Prepay"){
-    // Send user to Prepay page
-    res.redirect('v04/create-account/payment2')
-  } else  if (payoption == "PAYG"){
-    // Send user to PAYG page
-    res.redirect('v04/create-account/payment2b')
+///////auto pay or manual pay v04///////
+router.post('/CheckPaymentmethod', function (req, res) {
+  var topupoption = req.session.data['topup']
+  if (topupoption == "auto"){
+    res.redirect('v04/create-account/check-answers-auto')
+  } else  if (topupoption == "manual"){
+    res.redirect('v04/create-account/check-answers-manual')
   }
-
 });
 
 
