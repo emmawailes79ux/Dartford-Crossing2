@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Example - Passing data
+{% endblock %}
+
+
+{% block beforeContent %}
+  {% include "includes/alpha-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+
+
+{% block content %}
+
+
+{% endblock %}

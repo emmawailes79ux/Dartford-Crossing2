@@ -1,34 +1,27 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Your name
+About you
 {% endblock %}
 
-
 {% block beforeContent %}
-{% include "includes/alpha-banner.html" %}
+  {% include "includes/alpha-banner.html" %}
   <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="addresslookup" method="post">
+      <form class="form" action="addresslookup" method="post">
         <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Step 1 - About you</h1>
           <fieldset class="govuk-fieldset">
 
-            <h1 class="govuk-heading-l">What is your full name</h1>
+           <h2 class="govuk-heading-l">What is your full name</h2>
             <div class="govuk-form-group">
-              <label class="govuk-label" for="name">Full name</label>
-              <input class="govuk-input govuk-!-width-two-thirds" id="two-thirds" id="account-name" name="account-name" value="{{ data['account-name']}}" type="text" autocomplete="name"></div>
+             <label class="govuk-label" for="name">Full name</label>
+              <input class="govuk-input govuk-!-width-two-thirds" id="two-thirds" id="full-name" name="full-name" value="{{ data['full-name']}}" type="text" autocomplete="name"></div>
 
-
-  <button class="govuk-button" data-module="govuk-button">Continue</button>
-
-
-
-
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
 
       </form>
 

@@ -1,0 +1,147 @@
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#Debit-card">
+        Debit Card
+      </a>
+    </li>
+  </ul>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="Debit-card">
+    <h2 class="govuk-heading-l">Enter your debit card details</h2>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+  <table>
+    <tbody>
+      <tr>
+          <div class="govuk-form-group govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+              <label class="govuk-label govuk-!-font-weight-bold " for="name-on-card">Name on card</label>
+              <span class="govuk-error-message card-name-error" style="display: none">
+                  <span class="govuk-visually-hidden">Error:</span> Enter a valid name
+              </span>
+              <input class="govuk-input govuk-input--width-20" id="name-on-card" name="name-on-card" type="text"
+                  aria-required="true" aria-label="Enter the card holder name" />
+                  </div>
+          <div class="govuk-form-group govuk-!-margin-bottom-2">
+            <label class="govuk-label govuk-!-font-weight-bold " for="card-number">Card number</label>
+            <span class="govuk-error-message card-number-error" style="display: none">
+                <span class="govuk-visually-hidden">Error:</span> Enter a card number
+            </span>
+            <input class="govuk-input govuk-input--width-20" id="card-number" name="card-number" type="text"
+                aria-required="true" aria-label="Enter the card number" />
+          </div>
+        <div class="govuk-!-margin-bottom-2"><img class="card-img" src="/public/images/cards.png"  width="360px" alt="payment" /></div>
+        <div class="govuk-caption-m govuk-!-margin-bottom-5">
+        Accepted credit and debit card types
+        </div>
+        <div class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">
+            Expiry date
+        </div>
+        <div class="govuk-caption-m govuk-!-margin-bottom-2">
+            For example, 11/20
+        </div>
+        <div style="display: flex;">
+            <div class="govuk-form-group govuk-!-margin-bottom-2">
+                <label class="govuk-label" for="month">Month</label>
+                <input class="govuk-input govuk-input--width-2" id="month" name="month" type="text"
+                    aria-required="true" aria-label="Enter the card holder name"  />
+            </div>
+            <div class="govuk-caption-xl govuk-!-font-weight-regular govuk-!-margin-top-5 govuk-!-margin-bottom-0 govuk-!-padding-2"> / </div>
+            <div class="govuk-form-group govuk-!-margin-bottom-2">
+                <label class="govuk-label" for="year">Year</label>
+                <input class="govuk-input govuk-input--width-4" id="year" name="year" type="text"
+                    aria-required="true" aria-label="Enter the card holder name"  />
+            </div>
+        </div>
+        </div>
+
+        <div class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">
+            Card security code
+        </div>
+        <div class="govuk-caption-m govuk-!-margin-bottom-2">
+            The last 3 or 4 digits on the back of the card
+        </div>
+
+        <div style="display: flex;">
+            <div class="govuk-form-group">
+                <input class="govuk-input govuk-input--width-3" id="cvv" name="cvv" type="text"
+                    aria-required="true" aria-label="Enter the card holder name"  />
+            </div>
+            <div class="govuk-!-margin-left-3"><img src="/public/images/cvv.png"  width="64px" alt="cvv" /></div>
+        </div>
+
+        <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="countries-5" name="countries" type="checkbox" value="none" data-behaviour="exclusive">
+              <label class="govuk-label govuk-checkboxes__label" for="countries-5">
+                Save my card details
+              </label>
+            </div>
+
+        <!-- Terms and Condition Starts-->
+        <div id="sign-in-hint" class="govuk-hint">
+        By continuing with payment, you agree to our Terms and Conditions and you confirm that you are happy for us to notify you of your crossings by the method you have agreed in your account.
+      </div>
+    <table>
+      <tbody>
+        <tr>
+          <p class="govuk-!-margin-top-2 govuk-body-s"><a href="#" >Read terms and conditions</a></p>
+          <div class="govuk-button-group govuk-!-margin-top-6">
+            <button onClick="location.href='./step-4-done'" data-module="govuk-button" class="govuk-button" value="Proceed to payment" type="submit" role="button"
+                aria-label="Proceed to payment">Proceed with payment</button>
+                <!-- onClick="location.href='./payment-failure'" -->
+        </div>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="Bank-transfer">
+    <h2 class="govuk-heading-l">Set up a bank transfer</h2>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <div id="sign-in-hint" class="govuk-hint">
+        If you want to pay by bank transfer, you will need to enter these details into your online banking website/app or at your branch.
+          </div>
+          <p class="govuk-body govuk-!-font-weight-bold">Business name</p>
+              <p> Highways England (Dartford Crossing)</p>
+              </div>
+          <p class="govuk-body govuk-!-font-weight-bold">Bank name:</p>
+                <p>Barclays Bank</p>
+            <div class='govuk-!-margin-bottom-5'>
+                <p class="govuk-body govuk-!-font-weight-bold">Account number:</p>
+                <p>12345678</p>
+            </div>
+            <div class='govuk-!-margin-bottom-5'>
+                <p class="govuk-body govuk-!-font-weight-bold">Sort code:</p>
+                <p>202122</p>
+            </div>
+            <div class='govuk-!-margin-bottom-5'>
+                <p class="govuk-body govuk-!-font-weight-bold">IBAN number:</p>
+                <p>GB33BUKB20201555555555</p>
+            </div>
+            <div class='govuk-!-margin-bottom-5'>
+                <p class="govuk-body govuk-!-font-weight-bold">Your Account Reference number:</p>
+                <p>HDJ2123F</p>
+            </div>
+            <div class="govuk-button-group govuk-!-margin-top-6">
+              <button onClick="location.href='./step-4-done'" data-module="govuk-button" class="govuk-button" value="Proceed to payment" type="submit" role="button"
+                  aria-label="Proceed to payment">Confirm payment</button>
+            </div>
+            </div>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -10,22 +10,21 @@ Pay for crossings
 {% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="payment2" method="post">
+<form class="form" method="post" action='/CheckPaymentOption'>
+
         <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Step 4 - your payment</h1>
           <fieldset class="govuk-fieldset">
               <div class="govuk-form-group">
                 <label class="govuk-label" for="email">
                 </label>
 
-
                           {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
                           {{ govukRadios({
-                            idPrefix: "start-choose",
-                            name: "start-choose",
+                            idPrefix: "type-choose",
+                            name: "type-choose",
                             fieldset: {
                               legend: {
                                 text: "How do you want to pay for crossings?",
@@ -35,15 +34,15 @@ Pay for crossings
                             },
                             items: [
                               {
-                                value: "Manual",
-                                text: "Pre pay for my crossings",
+                                value: "Prepay",
+                                text: "Pre-pay",
                                 hint: {
-                                  text: "Top up my account when I choose."
+                                  text: "Top up my account when I choose"
                                 }
                               },
                               {
-                                value: "Auto",
-                                text: "Pay as I cross",
+                                value: "PAYG",
+                                text: "Pay as I go",
                                 hint: {
                                   text: "Debit my registered card when I make a crossing."
                                 }
@@ -54,9 +53,6 @@ Pay for crossings
                           </div>
   <button class="govuk-button" data-module="govuk-button">Continue</button>
   <!--<p class='govuk-body'><a href='#'>Resend verification</a></p>-->
-
-
-
 
 
       </form>

@@ -22,11 +22,11 @@ router.post('/v01/create-account/step4-code', function (req, res) {
 router.get('/examples/template-data', function(req, res) {
     res.render('examples/template-data', { 'name' : 'Foo' });
 });
+////Landing page choices //////
 
 // Landing page 01 //
-
 router.post('/v01/landing', function (req, res) {
-  const editChoice = req.session.data['start-choose']
+  const editChoice = req.session.data['landing']
   if (editChoice === 'one-off-payment') {
     res.redirect('/v01/one-off-payment/pay-crossing')
   } else if (editChoice === 'create-account') {
@@ -38,7 +38,6 @@ router.post('/v01/landing', function (req, res) {
 });
 
 // Landing page 02 //
-
 router.post('/v02/landing', function (req, res) {
   const editChoice = req.session.data['start-choose']
   if (editChoice === 'one-off-payment') {
@@ -52,7 +51,6 @@ router.post('/v02/landing', function (req, res) {
 });
 
 // Landing page 03 //
-
 router.post('/v03/landing', function (req, res) {
   const editChoice = req.session.data['start-choose']
   if (editChoice === 'one-off-payment') {
@@ -66,7 +64,6 @@ router.post('/v03/landing', function (req, res) {
 });
 
 // Landing page 04 //
-
 router.post('/v04/landing', function (req, res) {
   const editChoice = req.session.data['start-choose']
   if (editChoice === 'one-off-payment') {
@@ -80,6 +77,71 @@ router.post('/v04/landing', function (req, res) {
   }
 });
 
+
+
+//router.post('/landing', function (req, res) {
+//  const editChoice = req.session.data['']
+
+//  if (editChoice === '') {
+//    res.redirect('/')
+//  } else if (editChoice === '') {
+//    res.redirect('/')
+//  } else if (editChoice === 'not') {
+//    res.redirect('/v01')
+//  }
+//});
+
+
+
+
+/////////////////////////create account v04////////////////////////
+///is this your vehicle v04///
+
+router.post('/awcheck', function (req, res) {
+  var editChoice = req.session.data['vehicle-check']
+  if (editChoice == "yes"){
+    res.redirect('v04/create-account/email')
+  } else if (editChoice === "no"){
+    res.redirect('v04/create-account/vehicle-registration')
+  }
+});
+
+
+//////Top up - payment1 v04///
+router.post('/CheckPaymentOption', function (req, res) {
+
+  var payoption = req.session.data['type-choose']
+  if (payoption == "Prepay"){
+    // Send user to Prepay page
+    res.redirect('v04/create-account/payment2')
+  } else  if (payoption == "PAYG"){
+    // Send user to PAYG page
+    res.redirect('v04/create-account/payment2b')
+  }
+
+});
+
+///////auto pay or manual pay v04///////
+router.post('/CheckPaymentmethod', function (req, res) {
+  var topupoption = req.session.data['topup']
+  if (topupoption == "auto"){
+    res.redirect('v04/create-account/check-answers-auto')
+  } else  if (topupoption == "manual"){
+    res.redirect('v04/create-account/check-answers-manual')
+  }
+});
+
+
+
+/////////////////////////one off payment flow////////////////////////
+// one off payment
+router.post("/v04/one-off-payment/pay-crossing", function (req, res) {
+  
+  res.redirect("/v04/one-off-payment/vehicle-info");
+
+});
+
+/////////////////////////resolve pcn////////////////////////
 // Resolve PCN
 router.get("/v04/resolve-pcn/flow1", function (req, res) {
   res.redirect('/v04/resolve-pcn/landingRemod');
@@ -157,23 +219,5 @@ router.get("/v04/resolve-pcn/flow17", function (req, res) {
   res.redirect(`/v04/resolve-pcn//challengeConfirm`);
 });
 
-//router.post('/landing', function (req, res) {
-//  const editChoice = req.session.data['']
-
-//  if (editChoice === '') {
-//    res.redirect('/')
-//  } else if (editChoice === '') {
-//    res.redirect('/')
-//  } else if (editChoice === 'not') {
-//    res.redirect('/v01')
-//  }
-//});
-
-// one off payment
-router.post("/v04/one-off-payment/pay-crossing", function (req, res) {
-  
-    res.redirect("/v04/one-off-payment/vehicle-info");
-  
-});
 
 module.exports = router
