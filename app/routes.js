@@ -71,16 +71,39 @@ router.post('/awcheck', function (req, res) {
 
 
 //////Top up - payment1///
+router.post('/CheckPaymentOption', function (req, res) {
 
+  var payoption = req.session.data['type-choose']
 
-///router.post('v04/create-account/payment1', function (req, res) {
-///  const editChoice = req.session.data['topup']
-///  if (editChoice === 'Prepay') {
-//    res.redirect('v04/create-account/payment2')
-//  } else if (editChoice === 'PAYG') {
-//    res.redirect('v04/create-account/payment2b')
-//  }
-//});
+  // Check whether the variable matches a condition
+  if (payoption == "Prepay"){
+    // Send user to Prepay page
+    res.redirect('v04/create-account/payment2')
+  } else  if (payoption == "PAYG"){
+    // Send user to PAYG page
+    res.redirect('v04/create-account/payment2b')
+  }
+
+});
+
+///////auto pay or manual pay///////
+// Run this code when a form is submitted to 'Payment1'
+router.post('/CheckPaymentOption', function (req, res) {
+
+  // Make a variable and give it the value from 'start-choose'
+  var payoption = req.session.data['start-choose']
+
+  // Check whether the variable matches a condition
+  if (payoption == "Prepay"){
+    // Send user to Prepay page
+    res.redirect('v04/create-account/payment2')
+  } else  if (payoption == "PAYG"){
+    // Send user to PAYG page
+    res.redirect('v04/create-account/payment2b')
+  }
+
+});
+
 
 
 /////////////////////////one off payment flow////////////////////////

@@ -12,8 +12,8 @@ Pay for crossings
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-<form class="form" method="post" action='start-choose'>
-    <!--  <form action="payment2" method="post">-->
+<form class="form" method="post" action='/CheckPaymentOption'>
+
         <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Step 4 - your payment</h1>
           <fieldset class="govuk-fieldset">
               <div class="govuk-form-group">
@@ -23,8 +23,8 @@ Pay for crossings
                           {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
                           {{ govukRadios({
-                            idPrefix: "start-choose",
-                            name: "start-choose",
+                            idPrefix: "type-choose",
+                            name: "type-choose",
                             fieldset: {
                               legend: {
                                 text: "How do you want to pay for crossings?",
