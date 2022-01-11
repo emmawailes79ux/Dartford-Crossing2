@@ -200,23 +200,27 @@ router.get("/v04/resolve-pcn/flow11", function (req, res) {
 });
 
 router.get("/v04/resolve-pcn/flow13", function (req, res) {
-  res.redirect(`/v04/resolve-pcn//challengeSummary`);
+  res.redirect(`/v04/resolve-pcn/challengeSummary`);
 });
 
 router.get("/v04/resolve-pcn/flow14", function (req, res) {
-  res.redirect(`/v04/resolve-pcn//challengePCNchange`);
+  res.redirect(`/v04/resolve-pcn/challengePCNchange`);
 });
 
 router.get("/v04/resolve-pcn/flow15", function (req, res) {
-  res.redirect(`/v04/resolve-pcn//pcnChallengeReasonsChange`);
+  res.redirect(`/v04/resolve-pcn/pcnChallengeReasonsChange`);
 });
 
 router.get("/v04/resolve-pcn/flow16", function (req, res) {
-  res.redirect(`/v04/resolve-pcn//supportingEvidenceChange`);
+  res.redirect(`/v04/resolve-pcn/supportingEvidenceChange`);
 });
 
 router.get("/v04/resolve-pcn/flow17", function (req, res) {
-  res.redirect(`/v04/resolve-pcn//challengeConfirm`);
+  res.redirect(`/v04/resolve-pcn/challengeConfirm`);
+});
+
+router.get("/information/charges-fines", function (req, res) {
+  res.render(`/v04/information/charges-fines`);
 });
 
 
