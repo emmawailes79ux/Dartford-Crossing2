@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Example - Passing data
+  Template-page - before content
 {% endblock %}
 
 

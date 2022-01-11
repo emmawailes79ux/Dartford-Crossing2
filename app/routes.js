@@ -2,8 +2,9 @@ const express = require('express')
 const router = express.Router()
 
 // Add your routes here - above the module.exports line
+// Create a section for the screens the routes will be for
 
-////Landing page choices //////
+//////////////////Landing page choices //////////////////////////////////////
 
 // Landing page 01 //
 router.post('/v01/landing', function (req, res) {
@@ -57,9 +58,9 @@ router.post('/v04/landing', function (req, res) {
   }
 });
 
-/////////////////////////create account v04////////////////////////
-///is this your vehicle v04///
+/////////////////////////create account v04///////////////////////////////
 
+///is this your vehicle v04///
 router.post('/awcheck', function (req, res) {
   var editChoice = req.session.data['vehicle-check']
   if (editChoice == "yes"){
@@ -72,7 +73,6 @@ router.post('/awcheck', function (req, res) {
 
 //////Top up - payment1 v04///
 router.post('/CheckPaymentOption', function (req, res) {
-
   var payoption = req.session.data['type-choose']
   if (payoption == "Prepay"){
     // Send user to Prepay page
@@ -84,7 +84,8 @@ router.post('/CheckPaymentOption', function (req, res) {
 
 });
 
-///////auto pay or manual pay v04///////
+
+///////Top up - auto pay or manual pay v04///////
 router.post('/CheckPaymentmethod', function (req, res) {
   var topupoption = req.session.data['topup']
   if (topupoption == "auto"){
@@ -96,10 +97,14 @@ router.post('/CheckPaymentmethod', function (req, res) {
 
 
 
+//////////////////////////Manage-account//////////////////////////////
+
+
 /////////////////////////one off payment flow////////////////////////
 
 
-/////////////////////////resolve pcn////////////////////////
+
+/////////////////////////resolve pcn//////////////////////////////////
 
 
 
