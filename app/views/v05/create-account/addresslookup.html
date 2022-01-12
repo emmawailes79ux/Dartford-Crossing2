@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Step 2 - Enter your postcode
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="addressselect" method="post">
+        <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Step 2 - Where you live</h1>
+          <fieldset class="govuk-fieldset">
+            <h1 class="govuk-heading-l">What is your postcode?</h1>
+
+            <p></p>
+
+          <div class="govuk-form-group">
+          <label class="govuk-label" for="address-postcode">
+          Postcode
+          </label>
+        <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" value="{{ data['address-postcode'] }}" type="text" autocomplete="post-code"></div>
+
+        </fieldset>
+        <button class="govuk-button" data-module="govuk-button">Find address</button>
+        <p class='govuk-body'><a href='addressmanual'>Enter your address manually</a></p>
+
+
+    <!--    <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              I live outside of the UK
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            Accounts are optional, but they can help you to keep uptodate with the crossing.<br> <br>You can create an account to make payments for crossings, add on discount schemes if you live in the area, manage your vehicles and update payment details so you never miss a charge.
+          </div>
+        </details>
+-->
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
