@@ -1,12 +1,12 @@
-{% extends "prototype-layout.html" %}
+{% extends "layout.html" %}
 
 {% block pageTitle %}
-GOV.UK Prototype Kit
+Dart Charge - Charges and Fines
 {% endblock %}
 
 {% block content %}
+{% include "../../includes/alpha-banner.html" %}
 
-{% include "./one-off-payment/v1.1/one-off-payment-body-head.html" %}
 <a href="#" style="cursor: pointer;" class="govuk-back-link">Back</a>
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -133,24 +133,12 @@ GOV.UK Prototype Kit
                         </li>
                         <li>Monday to Sunday, 8am to 10pm (excluding public holidays)</li>
                     </ul>
-              
+
         </div>
 
     </div>
     <div class="govuk-grid-column-one-third ">
-        <!-- <div class="border-top">
-            <h2 class="govuk-heading-m govuk-!-padding-top-2 govuk-!-margin-bottom-2">
-                Related Content
-            </h2>
-            <ul class="govuk-list">
-                <li class="govuk-!-margin-bottom-2"> <a href="/one-off-payment/confirm-vehicle-details" class="govuk-link">Make a one off payment</a></li>
-                <li class="govuk-!-margin-bottom-2"><a href="https://dartford-crossing-charge.herokuapp.com/demo/flow1" class="govuk-link">Pay for penalty charge
-                        Notice(PCN)</a></li>
-                <li class="govuk-!-margin-bottom-2"><a href="/home" class="govuk-link">Paying the charge</a></li>
-                <li class="govuk-!-margin-bottom-2"><a href="#" class="govuk-link">Sign in</a></li>
 
-            </ul>
-        </div> -->
 
     </div>
 </div>

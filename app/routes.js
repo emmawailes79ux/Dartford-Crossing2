@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 // Add your routes here - above the module.exports line
+// Create a section for the screens the routes will be for
 
 
 
@@ -22,7 +23,8 @@ router.post('/v01/create-account/step4-code', function (req, res) {
 router.get('/examples/template-data', function(req, res) {
     res.render('examples/template-data', { 'name' : 'Foo' });
 });
-////Landing page choices //////
+
+//////////////////Landing page choices //////////////////////////////////////
 
 // Landing page 01 //
 router.post('/v01/landing', function (req, res) {
@@ -77,26 +79,70 @@ router.post('/v04/landing', function (req, res) {
   }
 });
 
+// Landing page 05 //
+router.post('/v05/landing', function (req, res) {
+  const editChoice = req.session.data['start-choose']
+  if (editChoice === 'one-off-payment') {
+    res.redirect('/v05/one-off-payment/pay-crossing')
+  } else if (editChoice === 'create-account') {
+    res.redirect('/v05/create-account/create-start')
+  }
+  else if (editChoice === 'resolve-pcn') {
+    res.redirect('/v05/resolve-pcn/payConfirm')
+  }
+});
 
 
-//router.post('/landing', function (req, res) {
-//  const editChoice = req.session.data['']
+/////////////////////////create account v04///////////////////////////////
 
-//  if (editChoice === '') {
-//    res.redirect('/')
-//  } else if (editChoice === '') {
-//    res.redirect('/')
-//  } else if (editChoice === 'not') {
-//    res.redirect('/v01')
-//  }
-//});
-
-
-
-
-/////////////////////////create account v04////////////////////////
 ///is this your vehicle v04///
+router.post('/awcheck', function (req, res) {
+  var editChoice = req.session.data['vehicle-check']
+  if (editChoice == "yes"){
+    res.redirect('v05/create-account/email')
+  } else if (editChoice === "no"){
+    res.redirect('v05/create-account/vehicle-registration')
+  }
+});
 
+//////Top up - payment1 v04///
+router.post('/CheckPaymentOption', function (req, res) {
+  var payoption = req.session.data['type-choose']
+  if (payoption == "Prepay"){
+    // Send user to Prepay page
+    res.redirect('v05/create-account/payment2')
+  } else  if (payoption == "PAYG"){
+    // Send user to PAYG page
+    res.redirect('v05/create-account/payment2b')
+  }
+
+});
+
+
+///////Top up - auto pay or manual pay v04///////
+router.post('/CheckPaymentmethod', function (req, res) {
+  var topupoption = req.session.data['topup']
+  if (topupoption == "auto"){
+    res.redirect('v05/create-account/check-answers-auto')
+  } else  if (topupoption == "manual"){
+    res.redirect('v05/create-account/check-answers-manual')
+  }
+});
+
+
+//////////////////////////Manage-account v05//////////////////////////////
+
+
+/////////////////////////One off payment flow v05////////////////////////
+
+
+
+/////////////////////////Resolve pcn v05//////////////////////////////////
+
+
+/////////////////////////create account v05///////////////////////////////
+
+///is this your vehicle v04///
 router.post('/awcheck', function (req, res) {
   var editChoice = req.session.data['vehicle-check']
   if (editChoice == "yes"){
@@ -106,10 +152,8 @@ router.post('/awcheck', function (req, res) {
   }
 });
 
-
 //////Top up - payment1 v04///
 router.post('/CheckPaymentOption', function (req, res) {
-
   var payoption = req.session.data['type-choose']
   if (payoption == "Prepay"){
     // Send user to Prepay page
@@ -121,7 +165,8 @@ router.post('/CheckPaymentOption', function (req, res) {
 
 });
 
-///////auto pay or manual pay v04///////
+
+///////Top up - auto pay or manual pay v04///////
 router.post('/CheckPaymentmethod', function (req, res) {
   var topupoption = req.session.data['topup']
   if (topupoption == "auto"){
@@ -132,6 +177,10 @@ router.post('/CheckPaymentmethod', function (req, res) {
 });
 
 
+//////////////////////////Manage-account v04//////////////////////////////
+
+
+/////////////////////////One off payment flow v04////////////////////////
 
 /////////////////////////one off payment flow////////////////////////
 // one off payment
@@ -166,6 +215,7 @@ router.get("/v04/resolve-pcn/flow5b", function (req, res) {
 router.get("/v04/resolve-pcn/flow5a", function (req, res) {
   res.redirect(`/v04/resolve-pcn/pcn_details_b`);
 });
+/////////////////////////Resolve pcn v04//////////////////////////////////
 
 router.get("/v04/resolve-pcn/flow5details", function (req, res) {
   res.redirect(`/v04/resolve-pcn//pcnDetails`);
