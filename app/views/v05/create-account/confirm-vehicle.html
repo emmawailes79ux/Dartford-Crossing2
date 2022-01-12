@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Step 3 - Your vehicle
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Step 3 - Your vehicle</h1>
+        <fieldset class="govuk-fieldset">
+          <h1 class="govuk-heading-l">Is this your vehicle?</h1>
+
+
+            <form class="form" method="post" action="/awcheck">
+
+          <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Registration number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              LO62 NRO
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Car
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Make
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Vauxhall
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Colour
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Grey
+            </dd>
+          </div>
+        </dl>
+
+{{ govukRadios({
+              classes: "govuk-radios--inline",
+              idPrefix: "vehicle-check",
+              name: "vehicle-check",
+              fieldset: {
+                legend: {
+                  text: "",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--l"
+                }
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "Yes"
+                },
+                {
+                  value: "no",
+                  text: "No, search again"
+                }
+              ]
+            }) }}
+
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Incorrect vehicle details?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+If your vehicle details are incorrect you may <br>need to <a href='https://www.gov.uk/change-vehicle-details-registration-certificate
+'>update them</a>.</div>
+        </details>
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

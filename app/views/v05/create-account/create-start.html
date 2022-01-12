@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Create your account
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Create a Dartford Crossing account or sign in</h1>
+
+      <form action="name" method="post">
+        <p class="govuk-body">Dart Charge accounts cannot be used to pay for crossings you have already made. If you’ve already made crossings in the vehicle you want to add to this account, they will have to be paid for separately</p>
+      <!--  <p class="govuk-body">To set up your Dart Charge account you will need to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>create a username and password</li>
+            <li>add in the number plate of the cars you want to use the account</li>
+            <li>provide payment details for the crossings</li>
+          </ul>
+  <!--<p class="govuk-body">The online service is also available in <a class="govuk-link" href="create-start-welsh">Welsh (Cymraeg)</a>.</p>
+-->
+      <p class='govuk-body'> If you already have an account you can <a href='../manage-account/login'>sign in here</a></p>
+
+
+      <button class="govuk-button" data-module="govuk-button">Create your account</button>
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              I need help doing this online
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p class="govuk-body">We can help you to:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                  <li>pay a recent charge</li>
+                  <li>pay future charges</li>
+                  <li>set up your account</li>
+                </ul>
+            <b>Dart Charge contact centre </b><br> Telephone 0300 300 0120 <br> Textphone 18001 0300 300 0120 <br> Everyday 8am to 8pm
+          </div>
+        </details>
+
+        <h2 class="govuk-heading-m">Before you start</h2>
+
+      <!--  <p class="govuk-body">The online service is also available in <a class="govuk-link" href="create-start-welsh">Welsh (Cymraeg)</a>.</p>
+-->
+            <p class="govuk-body">You'll need to have available:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>a smartphone to set up your security</li>
+              <li>the vehicle registration (number plate) you want to add to the account. You can add more later</li>
+              <li>a valid debit card or bank account details if you want to set up Bank Transfer/Direct Debit payments</li>
+            </ul>
+
+
+
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Step 4 - Pre-pay for crossings
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post" action='/CheckPaymentmethod'>
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          idPrefix: "topup",
+          name: "topup",
+          fieldset: {
+            legend: {
+              text: "How do you top up your account?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: ""
+          },
+          items: [
+            {
+              value: "auto",
+              text: "Automatically Top-up",
+              hint: {
+                text: "No need to remember to top-up your account. Funds are added automatically when the balance goes below the cost of 2 crossings."
+              }
+            },
+            {
+              value: "manual",
+              text: "Manual Top-up",
+              hint: {
+                text: "You will need to remember to add funds manually to your account when your balance is low. "
+              }
+            }
+          ]
+        }) }}
+
+<button class="govuk-button" data-module="govuk-button">Continue</button>
+
+  <!--<p class='govuk-body'><a href='#'>Resend verification</a></p>-->
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
