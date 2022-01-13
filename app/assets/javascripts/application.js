@@ -7,7 +7,12 @@ if (window.console && window.console.info) {
 
 $(document).ready(function () {
   window.GOVUKFrontend.initAll()
-  
+  $.fn.goBack = () => {
+    history.go(-1); event.preventDefault();
+  }; 
+  $(".govuk-back-link").click(function () {
+    $.fn.goBack();
+  });
 })
 $("[id='vrn']").click(() => {
   $("[id='vrn']").val("LO62 NRO");
