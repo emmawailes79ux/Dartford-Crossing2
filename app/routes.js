@@ -134,7 +134,51 @@ router.post('/CheckPaymentmethod', function (req, res) {
 
 
 /////////////////////////One off payment flow v05////////////////////////
+router.post("/v05/one-off-payment/pay-crossing", function (req, res) {
+  // res.redirect(`/one-off-payment/${req.params.version}/payment-options`);
+  res.redirect(`/v05/one-off-payment/vehicle-info`);
+});
 
+
+
+router.post("/v05/one-off-payment/vehicle-info", function (req, res) {
+  // res.redirect(`/one-off-payment/${req.params.version}/payment-options`);
+  if (req.body['vehicle-owner']) {
+    if (req.body['vehicle-owner'] === 'Yes') {
+      res.redirect("payment-info-single");
+    } else if (req.body['vehicle-owner'] === 'No') {
+      res.redirect("/v05/one-off-payment/pay-crossing");
+    }
+  }
+});
+router.post("/v05/one-off-payment/payment-info-single", function (req, res) {
+  // res.redirect(`/one-off-payment/${req.params.version}/payment-options`);
+  res.redirect(`/v05/one-off-payment/payment-options`);
+});
+
+router.post("/v05/one-off-payment/payment-info-future", function (req, res) {
+  // res.redirect(`/one-off-payment/${req.params.version}/payment-options`);
+  res.redirect(`/v05/one-off-payment/payment-options`);
+});
+
+router.post("/v05/one-off-payment/payment-options", function (req, res) {
+  // res.redirect(`/one-off-payment/${req.params.version}/payment-options`);
+  res.redirect(`/v05/one-off-payment/confirm-card-payment`);
+});
+
+// router.get("/v05/one-off-payment/payment-info-single", function (req, res) {
+//   const {
+//     data
+//   } = req.session;
+//   res.render(`/v05/one-off-payment/payment-info-single`, data);
+// });
+
+// router.get("/v05/one-off-payment/payment-info-future", function (req, res) {
+//   const {
+//     data
+//   } = req.session;
+//   res.redirect(data, `/v05/one-off-payment/payment-info-future`);
+// });
 
 
 /////////////////////////Resolve pcn v05//////////////////////////////////
@@ -275,3 +319,4 @@ router.get("/information/charges-fines", function (req, res) {
 
 
 module.exports = router
+
