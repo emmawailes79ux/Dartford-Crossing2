@@ -7,16 +7,14 @@ Dart Charge - Charges and Fines
 {% block beforeContent %}
   {% include "includes/alpha-banner.html" %}
   {% include "includes/back-link.html" %}
-
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      <h2 class="govuk-heading-xl govuk-!-padding-top-1 govuk-!-margin-bottom-6">
+      <h1 class="govuk-heading-xl govuk-!-padding-top-1 govuk-!-margin-bottom-6">
         Understanding charges, discounts and penalties
-      </h2>
+      </h1>
 
       <p>Contents</p>
       <p>
@@ -26,8 +24,6 @@ Dart Charge - Charges and Fines
       — <a href="#lrds">Local resident discount</a><br>
       — <a href="#fines">Penalty charge notices</a>
     </p>
-
-    {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
       <p>You can <a href="#">check the charge for a particular vehicle</a> by entering its number plate.</p>
 
@@ -61,8 +57,6 @@ Dart Charge - Charges and Fines
               <li>£6.00 as a one-off payment</li>
               <li>£5.19 if you have a pre-pay account</li>
             </ul>
-
-            {% from "govuk/components/details/macro.njk" import govukDetails %}
 
             {{ govukDetails({
               summaryText: "How to determine the number of axles",
@@ -109,8 +103,6 @@ Dart Charge - Charges and Fines
 
       <p>You can <a href="#">pay or challenge the penalty charge online</a> or call the <a href="start#contactdartcharge">Dart Charge contact centre</a>.</p>
 
-      {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
-
       {{ govukWarningText({
         text: "After 28 days the charge will increase to £105. If you continue to not pay, you may end up with a court order against you. Bailiffs (enforcement agents) may also be told to visit your home to collect what you owe.",
         iconFallbackText: "Warning"
@@ -118,11 +110,8 @@ Dart Charge - Charges and Fines
 
       <p>Find out more about dealing with <a href="https://www.gov.uk/parking-tickets#penalty-charge-notice-pcn">penalty charge notices</a>.</p>
 
-
     </div>
     <div class="govuk-grid-column-one-third ">
-
-
     </div>
 </div>
 
