@@ -26,10 +26,22 @@ GOV.UK Prototype Kit
     
   <!--[if lte IE 8]><link href="/public/stylesheets/application-ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
 <!--[if gt IE 8]><!--><link href="/public/stylesheets/application.css" media="all" rel="stylesheet" type="text/css" /><!--<![endif]-->
+<style>
+  .sr-only {
+position:absolute;
+left:-10000px;
+top:auto;
+width:1px;
+height:1px;
+overflow:hidden;
+}
+</style>
 
 
-
-
+<script>
+  let roper = JSON.parse(localStorage.getItem("pcnDetailsTable"));
+  let cardEntriesPCN = JSON.parse(localStorage.getItem("cardEntriesPCN"));
+</script>
     
     
     <meta property="og:image" content="/govuk/assets/images/govuk-opengraph-image.png">
@@ -82,8 +94,8 @@ GOV.UK Prototype Kit
     
     <div class="govuk-header__content">
     
-    <a href="/" class="govuk-header__link govuk-header__link--service-name">
-      Dartford Crossing Charge
+    <a href="flow1" class="govuk-header__link govuk-header__link--service-name">
+      Pay for the Dartford Crossing (Dart Charge)
     </a>
     
     
@@ -113,21 +125,29 @@ GOV.UK Prototype Kit
 
 
 <div class="govuk-width-container">
-  <div class="govuk-panel govuk-panel--confirmation">
+  <!-- <div class="govuk-panel govuk-panel--confirmation">
     <h1 class="govuk-panel__title">
       Payment received by Dartford <br>crossing
     </h1>
     <div class="govuk-panel__body">
       Your Payment reference: <br><strong>HDJ2123F</strong>
     </div>
-  </div>
+  </div> -->
   
 
   
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          Payment received by Dartford <br>crossing
+        </h1>
+        <div class="govuk-panel__body">
+          Your Payment reference: <br><strong>HDJ2123F</strong>
+        </div>
+      </div>
         
-      <p class="govuk-body">We have sent a confirmation email to john.doe@email.com</p>
+      <p class="govuk-body">We have sent a confirmation email to <span id="email">sandraphilips@email.com</span>  with confirmation of details of the relevant penalty charge notices (PCN).</p>
         <!-- <h2 class="govuk-heading-l">Enter your Vehicle registration number</h2>
       <p class="govuk-body">If you want to:</p>
       <ul class="govuk-list govuk-list--bullet">
@@ -135,8 +155,8 @@ GOV.UK Prototype Kit
         <li>check if there is a PCN for your vehicle</li>
       </ul> -->
       <table class="govuk-table">  
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
+        <tbody id="tbody" class="govuk-table__body">
+          <!-- <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Registration number</th>
             <td class="govuk-table__cell">LO69 NRO</td>
           </tr>
@@ -145,13 +165,13 @@ GOV.UK Prototype Kit
             <td class="govuk-table__cell">10 August 2021</td>
           </tr>
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">PCN number</th>
+            <th scope="row" class="govuk-table__header"><span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span> number</th>
             <td class="govuk-table__cell">IB09383638<br>IB09383639</td>
           </tr>
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Amount</th>
             <td class="govuk-table__cell">£105</td>
-          </tr>
+          </tr> -->
           <!-- <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Contravention time and date</th>
             <td class="govuk-table__cell">07:32 on 1 August 2019</td>
@@ -166,9 +186,25 @@ GOV.UK Prototype Kit
             <td class="govuk-table__cell"> <b>£70</b> (if paid before 20 Aug 2019)
               rising to <b>£140</b> if paid after</td>
           </tr>                                           -->
+          <!-- <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Registration number</th>
+            <td class="govuk-table__cell">LO 69NRO</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Date</th>
+            <td class="govuk-table__cell">10 August 2021</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"><span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span> number</th>
+            <td class="govuk-table__cell">IB09383638 IB09383639</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Amount</th>
+            <td class="govuk-table__cell">140</td>
+          </tr>` -->
         </tbody>
       </table>
-      <p class="govuk-body">These PCNs are now cancelled and no further action needs to be taken on them</p>
+      <p class="govuk-body">These <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span>s are now cancelled and no further action needs to be taken on them</p>
       <p class="govuk-body"><a href="javascript:void(0);">Print or download a PDF copy of your payment receipt</a></p>
 
       <!-- <div class="govuk-form-group">
@@ -183,9 +219,15 @@ GOV.UK Prototype Kit
             Confirm
           </button></a>
         </div> -->
-        <h3 class = "govuk-heading-m">Creating a Dartford charge account</h3>
-        <p class = "govuk-body">To prevent future PCNs you can <a href = "javascript:void(0);">create a Dart Charge account</a> and either pre-pay or pay
-          automatically as you make a crossing.</p>
+        <h3 class = "govuk-heading-m">Manage Dart Charge payments</h3>
+        <!-- <p class = "govuk-body">To prevent future <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span>s you can <a href = "flow12">create a Dart Charge account</a> and either pre-pay or pay
+          automatically as you make a crossing.</p> -->
+        <p class = "govuk-body">Use <a href=" https://dart-charge-prototype.herokuapp.com/landing">Dart Charge</a>  to:</p> 
+        <ul class="govuk-list govuk-list--bullet">
+          <li class="">set up a prepay account</li>
+          <li class="">make a single payment</li>
+          <li class="">check your payment</li>
+        </ul>  
         <!-- <p class = "govuk-body">You can also make a representation by post by filling in the form on the penalty charge
             notice and posting it to:</p>
         <h3 class = "govuk-heading-s">Dart Charge Enforcement</h3>
@@ -224,7 +266,7 @@ GOV.UK Prototype Kit
         </main>
       </div>
     
-
+<br><br><br><br>
     
     <footer class="govuk-footer " role="contentinfo">
   <div class="govuk-width-container ">
@@ -291,6 +333,49 @@ GOV.UK Prototype Kit
   
     <!-- Javascript -->
 <script src="/public/javascripts/jquery-1.11.3.js"></script>
+
+
+<script>
+  
+  
+
+        let vandal = []
+        if (typeof(roper[0])=="string"){
+                vandal.push(roper)
+        }else if(typeof(roper[0])=="object"){vandal=roper}
+        let chargeCummulator = 0
+        let pcns ="";
+        for (i=0; i<vandal.length; i++){
+          pcns += `${vandal[i][5]} <br>`                
+          chargeCummulator += parseInt(vandal[i][11].split('£')[1]);
+  
+        }
+        $(document).ready(function(){
+        let email = document.getElementById("email")
+        let container = document.getElementById("tbody")
+        let hamant = document.querySelector("#tbody > tr:nth-child(4) > td")
+        let fieldHTML = `
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Number plate</th>
+              <td class="govuk-table__cell">${vandal[0][0]}</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Date</th>
+              <td class="govuk-table__cell">10 August 2021</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header"><span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span> number</th>
+              <td class="govuk-table__cell">${pcns}</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Amount</th>
+              <td class="govuk-table__cell">£${chargeCummulator}</td>
+            </tr>`
+        container.innerHTML += fieldHTML;
+        email.innerHTML = cardEntriesPCN[6]
+        hamant.innerHTML = `£${chargeCummulator}`
+      })
+        </script>
 
 
   <script src="/extension-assets/govuk-frontend/govuk/all.js"></script>

@@ -26,13 +26,55 @@ GOV.UK Prototype Kit
     
   <!--[if lte IE 8]><link href="/public/stylesheets/application-ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
 <!--[if gt IE 8]><!--><link href="/public/stylesheets/application.css" media="all" rel="stylesheet" type="text/css" /><!--<![endif]-->
-
+<style>
+  .sr-only {
+position:absolute;
+left:-10000px;
+top:auto;
+width:1px;
+height:1px;
+overflow:hidden;
+}
+</style>
 
 
 
     
     
     <meta property="og:image" content="/govuk/assets/images/govuk-opengraph-image.png">
+
+    <script src="/public/javascripts/jquery-1.11.3.js"></script>
+
+    <script type="text/javascript">
+    var chosen = JSON.parse(localStorage.getItem("chosenCar"));
+      $(document).ready(function() {
+      
+      
+      var chosenFull = JSON.parse(localStorage.getItem("chosenCarfull"));
+      $("#reg").html(chosen[0]) ; 
+      $("#cla").html(chosen[1]);  
+      $("#make").html(chosen[2]);  
+      $("#model").html(chosen[3]);  
+      $("#color").html(chosen[4]);
+      $("#pcns").html(chosenFull[0].penalties.length);
+      
+      if ((chosenFull[0].penalties.length >1)||(chosenFull[0].penalties.length<1)){
+        $("#grammar1").html("are");  
+        $("#grammar2").html("s");
+      }
+      else {
+        $("#grammar1").html("is");  
+        $("#grammar2").html("");
+        // $("#grammar3").html("It is on its way");
+        // $("#grammar4").html("it.");
+
+      }
+      
+ 
+  
+      })
+    </script>
+ 
   </head>
   <body class="govuk-template__body "><script id="__bs_script__">//<![CDATA[
     document.write("<script async src='/browser-sync/browser-sync-client.js?v=2.27.4'><\/script>".replace("HOST", location.hostname));
@@ -82,8 +124,8 @@ GOV.UK Prototype Kit
     
     <div class="govuk-header__content">
     
-    <a href="/" class="govuk-header__link govuk-header__link--service-name">
-      Dartford Crossing Charge
+    <a href="flow1" class="govuk-header__link govuk-header__link--service-name">
+      Pay for the Dartford Crossing (Dart Charge)
     </a>
     
     
@@ -105,7 +147,7 @@ GOV.UK Prototype Kit
             </span>
           </p>
         </div>     
-        <a href="flow3" class="govuk-back-link">Back</a></div>
+        <a href="flow2" class="govuk-back-link">Back</a></div>
         
        
           
@@ -114,33 +156,38 @@ GOV.UK Prototype Kit
 
 <div class="govuk-width-container">
 
-  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-caption-l govuk-!-margin-bottom-1 govuk-!-margin-top-0">Pay or challenge a penalty charge notice (PCN)</h1>
+      <h2 class="govuk-heading-xl govuk-!-margin-bottom-5">Outstanding <span aria-hidden="true" title="Penalty charge notice">PCN</span><span class="sr-only" >Penalty charge notice</span>s</h2>
+    </div>
+  </div>
 
   
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-three-quarters">
             
-          <h1 class="govuk-heading-xl">Pay a Penalty Charge Notice (PCN)</h1>
-            <h2 class="govuk-heading-l">Outstanding PCNs</h2>
-          <p class="govuk-body">This page gives a view of the PCNs you have provided</p>
-          <p class="govuk-body"><b>Registration number:</b> LO69 NRO    <a class="govuk-link" href="flow1">Change</a> </p>
-
+          
+          <!-- <p class="govuk-body">Check your <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span> details below.</p> -->
+          <p>Here are all the PCNs connected to this vehicle. Deselect any you do not wish to pay for. The total amount to pay will be calculated based on the selected PCNs.
+            <br>The amount shown includes the PCN charge and the original crossing charge.</p>
+          <p class="govuk-body"><b>Number plate:</b> <span id="reg">LO69 NRO</span>     <a class="govuk-link" href="flow1">Change</a> </p>
+          <div style="overflow-x:auto;">
           <table class="govuk-table">
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header  govuk-!-width-one-quarter" style="text-align: center;">Time left till
-                  escalation</th>
+                <th scope="col" class="govuk-table__header  govuk-!-width-one-quarter" style="text-align: center;">Time until further action is taken</th>
                 <th scope="col" class="govuk-table__header govuk-!-width-one-third" style="text-align: center;" >Time and date of
                   crossing</th>
-                <th scope="col" class="govuk-table__header govuk-table__header" style="text-align: center;">PCN number</th>
+                <th scope="col" class="govuk-table__header govuk-table__header" style="text-align: center;"><span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span> number</th>
                 <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="text-align: center;">Amount owed</th>
                 <th scope="col" class="govuk-table__header govuk-table__header" style="text-align: center;"></th>
                 <th scope="col" class="govuk-table__header govuk-table__header" style="text-align: center;">Select</th>
 
               </tr>
             </thead>
-            <tbody class="govuk-table__body">
-              <tr  class="govuk-table__row">
+            <tbody id="tbody" class="govuk-table__body">
+              <!-- <tr  class="govuk-table__row">
                 <td class="govuk-table__cell govuk-table__cell" style="text-align: center;">14 days</td>
                 <td class="govuk-table__cell govuk-table__cell" >07:32 on 1 Aug 2019</td>
                 <td class="govuk-table__cell govuk-table__cell" >IB09383638</td>
@@ -167,7 +214,7 @@ GOV.UK Prototype Kit
                     </label>
                     </div>
                 </td>
-              </tr>
+              </tr> -->
               <!-- highlight, then ctrl/ to uncomment the extra row for testing below -->
 
               <!-- <tr class="govuk-table__row">
@@ -185,15 +232,18 @@ GOV.UK Prototype Kit
                 </td>
               </tr> -->
             </tbody>
-          </table>  
-          <a href="flow2"><button class="govuk-button govuk-button--secondary" data-module="govuk-button" style="float: right;">
-            Add another PCN
-         </button></a> <br><br><br><br>
-         <p>There are <span id=pcnCount>2</span>  Penalty Charge Notices (PCN) connected to this vehicle. The total amount
-          you owe has been autocalculated for you. If you’d like to pay a different amount or for a
-          specific PCN, deselect the PCN you don’t wish to pay/ challenge at the moment or enter
-          a different amount in the input field below</p>
-
+          </table> 
+        </div> 
+          <!-- <a href="flow2Alt"><button class="govuk-button govuk-button--secondary govuk-!-margin-top-2 govuk-!-margin-bottom-2" data-module="govuk-button" style="float: right;">
+            Add another <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span>
+         </button></a>  -->
+         <br><br>
+          
+            <!-- <ul class="govuk-list govuk-list--bullet">
+              <li>the <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span>  charge</li>
+              <li>the original crossing charge.</li>
+            </ul><br> -->
+            
           <div class="govuk-form-group">
             <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="cost">
                 Payment amount
@@ -201,29 +251,56 @@ GOV.UK Prototype Kit
             </h3>
             <div class="govuk-input__wrapper">
               <div class="govuk-input__prefix" aria-hidden="true"><b>£</b></div>
-              <input class="govuk-input govuk-input--width-5" id="amt_owed" name="amt_owed" type="text" spellcheck="false" value="0" style="font-weight:bold ;">
+              <input class="govuk-input govuk-input--width-5" id="amt_owed" name="amt_owed" type="text" spellcheck="false" value="105" style="font-weight:bold ;">
             </div>
           </div>
-          <button class="govuk-button" data-module="govuk-button">
+          <a id="confirmPayBTN" href="flow6details"><button id="btnConfam" class="govuk-button" data-module="govuk-button">
             Proceed to payment
-          </button>
-          <h1 class="govuk-heading-m">Challenge the PCN</h1>
+          </button></a><br><br>
+          <h1 class="govuk-heading-l">Challenge the <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span></h1>
 
-          <p>If you think the PCN(s) have been issued incorrectly, you can challenge/ appeal it by
-            making a representation online.</p>
-          <p><a class="govuk-link" href="#">See on which grounds you can make a representation</a></p>
-          <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-            Challenge PCN
-          </button>
+          <p>If you feel your <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span> has been issued unfairly, you can make a challenge.</p>
+          <!-- <p><a class="govuk-link" href="#">See on which grounds you can make a representation</a></p> -->
+          <p class="govuk-body">There are 2 ways to challenge your <span title="Penalty charge notices">PCN<span></p>
+            <ul>
+              <li class="govuk-body govuk-!-margin-bottom-2">continue to use this online service</li>
+              <li class="govuk-body">complete and return the postal form attached to your <span title="Penalty charge notices">PCN<span> letter</span> </li>
+            </ul>
+          <p class="govuk-body">Late payment charges will be paused while your challenge is considered. The amount you owe will not increase during this time.
+          </p>   
+               <h1 class="govuk-heading-m">
+                 Challenge your <span title="Penalty charge notices">PCN</span> online.
+               </h1>
+               <p class="govuk-body">You will be asked to select the reason for your challenge and provide any relevant information and evidence.</p>
+               <button id="challengeForm" onclick="window.location.href='flow9'" class="govuk-button govuk-button--secondary govuk-!-width-one-quarter govuk-!-margin-bottom-0" data-module="govuk-button">
+                Next
+              </button>
+               
+               <h1 class="govuk-heading-m govuk-!-margin-top-9">
+                Challenge your <span title="Penalty charge notices">PCN<span> by post.
+              </h1>
+              <p class="govuk-body">To challenge your <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span> by post, send your postal form to the address below.</p>
+              <p>If you cannot find your postal <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span> form <a href="#">contact Dart Charge.</a></p>
+              <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Dart Charge Enforcement</h3>
+              <p class="govuk-body">PO BOX 842 <br>
+                Leeds <br>
+                LS1 9QF</p>
+              <!-- <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Business customer's DX address</h3>
+              <p class="govuk-body">Land registry <br>
+                  DX 321601 <br>
+                  Gloucester 33</p> -->
+          <!-- <a class="govuk-link" href="flow8b"><button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Challenge <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span>
+          </button></a> -->
           
           
          
 
 
-                  <p><b>If we accept your representation,</b> we will send you written confirmation that you are no
-                    longer liable for the PCN.</p>
-                  <p><b>If we reject your representation,</b>  we will send you a notice of rejection which will tell you
-                    what you should do next.</p>
+                  <!-- <p><b>If we accept your representation,</b> we will send you written confirmation that you are no -->
+                    <!-- longer liable for the <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span>.</p> -->
+                  <!-- <p><b>If we reject your representation,</b>  we will send you a notice of rejection which will tell you -->
+                    <!-- what you should do next.</p> -->
         </div>  
                     <!-- javascript to access list of checkboxes in the DOM:
                     const checks = document.querySelectorAll('tr > td:nth-child(6) > div') -->
@@ -239,23 +316,96 @@ GOV.UK Prototype Kit
                      
                      <!-- test script for adding checkbox values -->
                      <script src="/public/javascripts/jquery-1.11.3.js"></script>
+                     <script>
+                      $(document).ready(function() {
+                      var pcn_fields = JSON.parse(localStorage.getItem("pcn_fields"));
+                      var chosenFull = JSON.parse(localStorage.getItem("chosenCarfull"));
+                      let penaltyDetails =[];
+                          for (k = 0; k < pcn_fields.length; k++){
+                            for (j = 0; j < chosenFull.length; j++) { 
+                              for (i = 0; i < chosenFull[j].penalties.length; i++){
+                                if (pcn_fields[k].replace(/\s/g, "") === chosenFull[j].penalties[i].pcn.replace(/\s/g, "")){
+                                    penaltyDetails.push(chosenFull[j].penalties[i])
+                                 };
+                             }
+                            }
+                          }
+                      
+                    
+                    for (w=0; w<penaltyDetails.length; w++){
+                    let fieldHTML = `<tr  class="govuk-table__row">
+                                <td class="govuk-table__cell govuk-table__cell" style="text-align: center;">${penaltyDetails[w].daysToEsc}</td>
+                                <td class="govuk-table__cell govuk-table__cell" >${penaltyDetails[w].conTime} on ${penaltyDetails[w].conDate}</td>
+                                <td class="govuk-table__cell govuk-table__cell" >${penaltyDetails[w].pcn}</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"  name="pay" style="text-align: center;">${penaltyDetails[w].charge}</td>
+                                <td class="govuk-table__cell govuk-table__cell" ><a name="details" class="govuk-link" href="flow5details">Details</a></td>
+                                <td class="govuk-table__cell govuk-table__cell" >
+                                  <div class="govuk-checkboxes govuk-checkboxes--small govuk-checkboxes__item" data-module="govuk-checkboxes" style="margin-left:20%; padding-top: 10%;">
+                                    <input class="govuk-checkboxes__input"  name="organisation" type="checkbox" value=""  onchange="checkCharge()" checked>
+                                    <label class="govuk-label govuk-checkboxes__label govuk-!-padding-right-0" for="organisation-2">
+                                    </label>
+                                    </div>
+                                </td>
+                              </tr>`;
+                    document.getElementById("tbody").innerHTML += fieldHTML;
+                    }
+                    // localStorage.setItem("penaltyDetails",JSON.stringify(penaltyDetails));
+                    let pcnDetailslinks = document.getElementsByName("details");
+                    let pcnDetailsTable = [];
+                    for (let g=0; g<pcnDetailslinks.length; g++){
+                      // pcnDetailslinks[g].addEventListener("mouseover", function(){
+                      pcnDetailslinks[g].addEventListener("click", function(){
+                        pcnDetailsTable = (chosen.concat(Object.values(penaltyDetails[g]))) 
+                        localStorage.setItem("pcnDetailsTable",JSON.stringify(pcnDetailsTable));
+                         });
+                          
+                    };
+                    let confirmPayBTN = document.getElementById("confirmPayBTN");
+                    
+                    let checkslist = document.getElementsByName('organisation')
+
+                    confirmPayBTN.addEventListener("click", function(){
+                      //event.preventDefault();
+                      for (let k=0; k<checkslist.length; k++){
+                        if (checkslist[k].checked){
+                          pcnDetailsTable.push((chosen.concat(Object.values(penaltyDetails[k]))))
+                        }
+                      }
+                      if(pcnDetailsTable.length>1){
+                        pcnDetailsTable=pcnDetailsTable
+                      }else if(pcnDetailsTable.length=1){pcnDetailsTable=pcnDetailsTable.flat(1)}
+                      localStorage.setItem("pcnDetailsTable",JSON.stringify(pcnDetailsTable));
+                    })
+                    
+                    
+                      })
+
+                      //prevent safari browser from loading from cache when back button is pressed
+                      window.onpageshow = function(event) {
+                      if (event.persisted) {
+                      window.location.reload() 
+                        }
+                      };
+                    </script>
                      <script type="text/javascript">
-                     
-                     const checks = document.getElementsByName('organisation')
-                     const sumBox = document.querySelector('#amt_owed')
-                     const payFields = document.getElementsByName('pay')
-                     const pcnCount = document.getElementById('pcnCount')
+                     $(document).ready(function(){
+                     let checks = document.getElementsByName('organisation')
+                     let sumBox = document.querySelector('#amt_owed')
+                     let payFields = document.getElementsByName('pay')
+                    //  const pcnCount = document.getElementById('pcnCount')
+
+                    sumBox.disabled=true
 
                       function setIt(){
                           for(i=0; i<payFields.length; i++) { 
-                              checks[i].value = payFields[i].innerText.split('£')[1]
+                              checks[i].value = parseInt(payFields[i].innerText.split('£')[1]);
                           }
                       }
                       setIt();
-                      function setPcnCount(){
-                        pcnCount.innerText =payFields.length
-                      }
-                      setPcnCount();
+                      // function setPcnCount(){
+                      //   pcnCount.innerText =payFields.length
+                      // }
+                      // setPcnCount();
                     //     function checkTotal() {
                           
                     //       document.listForm.total.value = '35';
@@ -290,7 +440,7 @@ GOV.UK Prototype Kit
                             //$("#tot_amount").val(sum.toFixed(3));
 
                             if (total == 0) {
-                              $('#amt_owed').val('');
+                              $('#amt_owed').val('0');
                             } else {
                               $('#amt_owed').val(total);
                             }
@@ -299,12 +449,35 @@ GOV.UK Prototype Kit
 
                           $(".govuk-checkboxes__input").click(function(event) {
                             getTotal();
+                            if (document.getElementById("amt_owed").value=="0"){
+                          document.getElementById("btnConfam").setAttribute("disabled", "disabled")
+                          document.getElementById("btnConfam").setAttribute("aria-disabled", "true")
+                          document.getElementById("btnConfam").classList.add("govuk-button--disabled")
+                          document.getElementById("challengeForm").setAttribute("disabled", "disabled")
+                          document.getElementById("challengeForm").setAttribute("aria-disabled", "true")
+                          document.getElementById("challengeForm").classList.add("govuk-button--disabled")
+                          // document.getElementById("confirmPayBTN").classList.add("govuk-!-display-none")  
+                        }
+                        if (document.getElementById("amt_owed").value!="0"){
+                          document.getElementById("btnConfam").removeAttribute("disabled", "disabled")
+                          document.getElementById("btnConfam").removeAttribute("aria-disabled", "true")
+                          document.getElementById("btnConfam").classList.remove("govuk-button--disabled")
+                          document.getElementById("challengeForm").removeAttribute("disabled", "disabled")
+                          document.getElementById("challengeForm").removeAttribute("aria-disabled", "true")
+                          document.getElementById("challengeForm").classList.remove("govuk-button--disabled")
+                          document.getElementById("confirmPayBTN").classList.remove("govuk-!-display-none")  
+                        }
+                        
                           });
                           getTotal(true);
 
                           });
 
+                        })
+                        
                       </script>
+
+
                       
                       <!-- <form name="listForm">
                       <input type="checkbox" name="choice" value="2" onchange="checkTotal()"/>2<br/>
@@ -326,7 +499,7 @@ GOV.UK Prototype Kit
         </main>
       </div>
     
-
+<br><br><br><br>
     
     <footer class="govuk-footer " role="contentinfo">
   <div class="govuk-width-container ">
@@ -392,7 +565,6 @@ GOV.UK Prototype Kit
     
   
     <!-- Javascript -->
-<script src="/public/javascripts/jquery-1.11.3.js"></script>
 
 
   <script src="/extension-assets/govuk-frontend/govuk/all.js"></script>
