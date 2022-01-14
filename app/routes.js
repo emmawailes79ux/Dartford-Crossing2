@@ -8,22 +8,6 @@ const router = express.Router()
 
 // create-start //
 
-router.post('/v01/create-account/step4-code', function (req, res) {
-  const editChoice = req.session.data['step4-code']
-//if user chooses mobile authenticator redirect to app
-  if (editChoice === 'authenticator-app') {
-    res.redirect('/v01/create-account/2fa-app')
-    //if user chooses mobile phone redirect to mobile
-
-  } else if (editChoice === 'mobile-phone') {
-    res.redirect('/v01/create-account/2fa-mobile')
-  }
-});
-
-router.get('/examples/template-data', function(req, res) {
-    res.render('examples/template-data', { 'name' : 'Foo' });
-});
-
 //////////////////Landing page choices //////////////////////////////////////
 
 // Landing page 01 //
@@ -229,7 +213,7 @@ router.post('/CheckPaymentmethod', function (req, res) {
 /////////////////////////one off payment flow////////////////////////
 // one off payment
 router.post("/v04/one-off-payment/pay-crossing", function (req, res) {
-  
+
   res.redirect("/v04/one-off-payment/vehicle-info");
 
 });
@@ -319,4 +303,3 @@ router.get("/information/charges-fines", function (req, res) {
 
 
 module.exports = router
-
