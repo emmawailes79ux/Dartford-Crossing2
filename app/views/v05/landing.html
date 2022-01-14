@@ -11,47 +11,43 @@
 {% endblock %}
 
 {% block content %}
+    
 
-<!--
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Pay the Dartford Crossing charge (Dart Charge)</h1>
+
+  <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Pay for the Dartford Crossing (Dart Charge)</h1>
+
+  <form class="form" method="post" action='landing'>
 
   <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
       <h1 class="govuk-fieldset__heading govuk-!-margin-top-0 govuk-!-margin-bottom-5">
         What would you like to do?
       </h1>
-    </legend>-->
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <form class="form" method="post" action='landing'>
-        <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Pay the Dartford Crossing charge (Dart Charge)</h1>
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <h2 class="govuk-fieldset__heading govuk-!-margin-top-0 govuk-!-margin-bottom-5">
-            What would you like to do?
-          </h2>
-        </legend>
-
+    </legend>
     <div class="govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="sign-in" name="start-choose" type="radio" value="one-off-payment" aria-describedby="sign-in-item-hint">
         <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="sign-in">
             Pay for crossings without an account
         </label>
-        <ul class="govuk-list govuk-list--bullet">You can:
+        <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+          You can:
           <ul class="govuk-list govuk-list--bullet">
             <li>pay for crossings you've made since yesterday</li>
             <li>pay for future crossings, such as a return journey</li>
           </ul>
-          </div>
+                </div>
       </div>
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="sign-in-2" name="start-choose" type="radio" value="create-account" aria-describedby="sign-in-2-item-hint">
         <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="sign-in-2">
           Sign in or create an account
         </label>
-<ul class="govuk-list govuk-list--bullet">  Easily pay for future crossings. With an account you can:
+        <div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint">
+          Easily pay for future crossings. With an account you can:
             <ul class="govuk-list govuk-list--bullet">
               <li>pre-pay – get a discount of up to 20% on all crossings</li>
               <li>pay as you go – no discount but payments are taken automatically</li>
@@ -59,13 +55,13 @@
             </ul>
         </div>
       </div>
-
         <div class="govuk-radios__item">
           <input class="govuk-radios__input" id="sign-in-3" name="start-choose" type="radio" value="resolve-pcn" aria-describedby="sign-in-3-item-hint">
           <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="sign-in-3">
             Resolve a penalty charge notice (PCN)
           </label>
-        <ul class="govuk-list govuk-list--bullet">You can:
+          <div id="sign-in-3-item-hint" class="govuk-hint govuk-radios__hint">
+            You can:
             <ul class="govuk-list govuk-list--bullet">
               <li>pay the penalty charge</li>
               <li>challenge a PCN you believe should not have been issued</li>
@@ -73,8 +69,12 @@
         </div>
     </div>
 
-      <button class="govuk-button" data-module="govuk-button">Continue</button>
+  </fieldset>
 
-    </div>
+  <button class="govuk-button" data-module="govuk-button">Continue</button>
+  </form>
   </div>
+
+</div>
+
 {% endblock %}
