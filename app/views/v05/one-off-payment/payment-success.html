@@ -1,7 +1,12 @@
-{% extends "prototype-layout.html" %}
+{% extends "layout.html" %}
 
 {% block pageTitle %}
-GOV.UK Prototype Kit
+Payment successfull
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
 {% endblock %}
 
 {% block content %}
@@ -57,7 +62,7 @@ GOV.UK Prototype Kit
                         5 Vehicles
                     </td>
                     {%endif%}
-                </tr> --> 
+                </tr> -->
                 <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header">Number plate</th>
                     <td class="govuk-table__cell">{{data['vrn']}}</td>
@@ -134,12 +139,12 @@ GOV.UK Prototype Kit
                 </label>
             </div>
         </div>
-        
+
         <div class="govuk-button-group successNxt govuk-!-margin-top-5">
             <input data-module="govuk-button" class="govuk-button" value="Continue" type="submit" role="button"
                 aria-label="Next" />
         </div>
-        
+
         <p class="govuk-body govuk-!-margin-top-7">You can <a href="javascript:void(0)">make another payment</a> or
             close the window to
             finish.</p>

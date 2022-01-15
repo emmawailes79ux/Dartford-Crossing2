@@ -1,13 +1,16 @@
-{% extends "prototype-layout.html" %}
+{% extends "layout.html" %}
 
 {% block pageTitle %}
-GOV.UK Prototype Kit
-{% endblock %}
+Confirm payment{% endblock %}
 
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
 {% block content %}
 
 
- 
+
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full govuk-!-margin-top-6">
         <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Pay the Dartford Crossing charge (Dart Charge)
@@ -37,7 +40,7 @@ GOV.UK Prototype Kit
                     </th>
                     {%else%}
                     <th scope="row" class="govuk-table__header">
-                       
+
                     </th>
                     {% endif %}
                     {% if data['vrm-1'] | length%}
@@ -69,7 +72,7 @@ GOV.UK Prototype Kit
                         <span class="govuk-caption-l">
                             {{data['vrm-' + loop.index][0]}}
                         </span>
-                       
+
                         {% endif %}
                         {% endfor %} -->
                         <!-- <details class="govuk-details govuk-!-margin-bottom-0" data-module="govuk-details">
@@ -96,7 +99,7 @@ GOV.UK Prototype Kit
                     <td class="govuk-table__cell"><a href="javascript:void(0)">Change</a>
                     </td>
                 </tr>
-                
+
             </tbody>
         </table>
 

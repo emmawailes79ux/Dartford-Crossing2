@@ -1,7 +1,11 @@
-{% extends "prototype-layout.html" %}
+{% extends "layout.html" %}
 
 {% block pageTitle %}
-GOV.UK Prototype Kit
+Success{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
 {% endblock %}
 
 {% block content %}
@@ -86,7 +90,7 @@ GOV.UK Prototype Kit
                     </td>
                     {%endif%}
                 </tr>
-                
+
             </tbody>
         </table>
     </div>
@@ -113,8 +117,8 @@ GOV.UK Prototype Kit
         </div> -->
 
         {% else %}
-        
-        
+
+
         {% if data['vrm-2'] %}
 
         <p class="govuk-!-margin-top-7 govuk-!-margin-bottom-2">You can create an account based on the details already provided.</p>
@@ -143,12 +147,12 @@ GOV.UK Prototype Kit
                 </label>
             </div>
         </div>
-        
+
         <div class="govuk-button-group govuk-!-margin-top-5">
-            
+
             <input data-module="govuk-button" class="govuk-button successNxt govuk-!-margin-bottom-0" value="Continue" type="submit" role="button"
                     aria-label="Next" />
-            <!-- <button class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button" 
+            <!-- <button class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button"
                     onclick="location.href='/home'" >
                        Go to home page
                       </button> -->
@@ -157,8 +161,8 @@ GOV.UK Prototype Kit
         {% else %}
         {{data['vrm-1'][0]}}
         {% endif %}
-        
-        
+
+
         <!-- <p class="govuk-body govuk-!-margin-top-7">You can <a href="javascript:void(0)">make another payment</a> or
             close the window to
             finish.</p> -->

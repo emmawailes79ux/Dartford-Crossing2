@@ -1,7 +1,12 @@
-{% extends "prototype-layout.html" %}
+{% extends "layout.html" %}
 
 {% block pageTitle %}
-  GOV.UK Prototype Kit
+Payment details
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
 {% endblock %}
 
 {% block content %}
@@ -46,16 +51,16 @@
      position: relative;
      display: inline-block;
      color: black;
- 
+
      padding: 0 .5em;
      line-height: 1.5em;
      /* // this is really the only tricky part, you need to specify the background color of the container element... */
      color: #1a1919;
      background-color: #fcfcfa;
    }
- 
+
  </style>
-    
+
 
 
 <div class="govuk-grid-row">
@@ -73,17 +78,17 @@
       </p>
       {% if data['sortCrossB'] %}
       <p class="gem-c-contextual-sidebar__brexit-text govuk-body">
-        
+
         <b>Number of crossings</b> <br>
         {{(data['krosCount'] | float) + (data['sortCrossB'] | float)}}
-        
+
       </p>
       {% elif not data['sortCrossB'] %}
       <p class="gem-c-contextual-sidebar__brexit-text govuk-body">
-        
+
         <b>Number of crossings</b> <br>
         {{(data['krosCount'] | float)}}
-        
+
       </p>
       {% endif %}
 
@@ -93,12 +98,12 @@
         <h1 class="govuk-heading-xl govuk-!-margin-top-1 govuk-!-margin-bottom-2 govuk-!-padding-bottom-2">£{{((data['krosCount'] | float + data['sortCrossB'] | float)*2.50).toFixed(2)}}</h1>
         {% elif not data['sortCrossB'] %}
         <h1 class="govuk-heading-xl govuk-!-margin-top-1 govuk-!-margin-bottom-2 govuk-!-padding-bottom-2">£{{((data['krosCount'] | float)*2.50).toFixed(2)}}</h1>
-        {% endif %}      
+        {% endif %}
       </p>
         </div>
   <img id=applePay class=" govuk-!-width-two-thirds govuk-!-display-none govuk-!-margin-bottom-3" src="\public\images\appleDefault.png" alt="apple Pay">
         <hr id="appleSection"class="govuk-body-xl govuk-!-width-two-thirds govuk-!-display-none govuk-section-break govuk-section-break--xl govuk-section-break--visible hr-text" data-content="OR">
-        
+
         <form  method="post">
           <h2 class="govuk-heading-l">Enter card details</h2>
           <div class="govuk-form-group govuk-!-margin-bottom-3">
@@ -110,16 +115,16 @@
               <span class="govuk-visually-hidden">Error:</span> Enter a valid credit card number
             </span>
             <input class="govuk-input govuk-!-width-two-thirds cardFields" id="cardset" name="cardset" type="text" maxlength="15" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="{{data['cardset']}}">
-            
+
           </div>
-          <div class="govuk-!-margin-bottom-2" style="position:relative;"><img src ="\public\images\cardarray.png" id="bgCardset" style=" position: absolute;" class="govuk-!-width-two-thirds" alt="supported cards"/> 
+          <div class="govuk-!-margin-bottom-2" style="position:relative;"><img src ="\public\images\cardarray.png" id="bgCardset" style=" position: absolute;" class="govuk-!-width-two-thirds" alt="supported cards"/>
            <img src ="\public\images\cardarrayAMEX.png" id="fgCardset" style="max-width: 7.966461%; height:auto;  z-index: 9;" alt="AMEX"/></div>
-  
-    
+
+
           <div id="event-name-hint" class="govuk-hint">
             Accepted credit and debit card types
           </div>
-  
+
           <h2 class="govuk-heading-m govuk-!-margin-bottom-0 govuk-!-margin-top-5">Expiry date</h2>
           <div id="event-name-hint" class="govuk-hint govuk-!-margin-top-0">
             For example, 10/20
@@ -142,16 +147,16 @@
               <span class="govuk-visually-hidden">Error:</span> Enter a valid year
             </span>
             <input class="govuk-input govuk-input--width-4 cardFields" id="year" name="year" type="text" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="{{data['year']}}">
-          </div>  
+          </div>
             <div class="govuk-form-group govuk-!-margin-top-0">
               <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="width-2">
                 Name on card
-                
+
               </label></h3>
               <span id="nameError" class="govuk-error-message govuk-!-display-none pcnError">
                 <span class="govuk-visually-hidden">Error:</span> Enter the name as shown on your credit card
               </span>
-              <input class="govuk-input govuk-!-width-one-half cardFields" id="userName" name="userName" type="text" value="{{data['userName']}}"></div> 
+              <input class="govuk-input govuk-!-width-one-half cardFields" id="userName" name="userName" type="text" value="{{data['userName']}}"></div>
             <div class="govuk-form-group govuk-!-margin-top-0 govuk-!-margin-right-2 govuk-!-display-inline-block" >
               <label class="govuk-label govuk-label--m" for="width-5">
                   Card security code
@@ -162,7 +167,7 @@
                 <span id="cvvError" class="govuk-error-message govuk-!-display-none pcnError">
                   <span class="govuk-visually-hidden">Error:</span> Enter a valid card security code
                 </span>
-                <input class="govuk-input govuk-input--width-4 cardFields" id="cvv" name="cvv" type="text" maxlength="3" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="{{data['cvv']}}">              
+                <input class="govuk-input govuk-input--width-4 cardFields" id="cvv" name="cvv" type="text" maxlength="3" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="{{data['cvv']}}">
                 <div class="govuk-!-display-inline-block" style=" position:relative; top:0.7em;">
                  <svg
                   xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -385,9 +390,9 @@
                    </g>
                  </g>
                </svg>
-               </div>  
+               </div>
               </div>
-  
+
                <div class="govuk-form-group">
                 <label class="govuk-label govuk-label--m" for="width-10">
                   Postcode
@@ -395,13 +400,13 @@
                 <span id="postcodeError" class="govuk-error-message govuk-!-display-none pcnError">
                   <span class="govuk-visually-hidden">Error:</span> Enter a valid postcode
                 </span>
-                
+
                 <input class="govuk-input govuk-input--width-10 cardFields" id="postcode" name="postcode" type="text" value="{{data['postcode']}}"></div>
                 <div class="govuk-form-group">
                   <label class="govuk-label govuk-label--m"  for="event-name">
-                      Email address 
+                      Email address
                     </label>
-                  
+
                   <div id="event-name-hint" class="govuk-hint">
                     We'll use this to send your payment confirmation.
                   </div>
@@ -412,9 +417,9 @@
                 </div>
                 <div class="govuk-form-group">
                   <label class="govuk-label govuk-label--m"  for="event-name">
-                      Mobile phone number (Optional) 
+                      Mobile phone number (Optional)
                     </label>
-                  
+
                   <div id="event-name-hint" class="govuk-hint">
                     We'll only use this to send you notifications if you opt in below
                   </div>
@@ -423,7 +428,7 @@
                   </span>
                   <input class="govuk-input govuk-!-width-two-thirds cardFields" id="phoneNumber" name="phoneNumber" type="text" value="{{data['phoneNumber']}}">
                 </div>
-  
+
           <!-- <button id="confirmPay" onclick="window.location.href='flow7'" class="govuk-button" data-module="govuk-button">
             Confirm and pay
           </button>       -->
@@ -450,7 +455,7 @@
                     <ul class="govuk-!-margin-top-1">
                       <li>payment reminders</li>
                       <li>balance updates</li>
-                    </ul>                
+                    </ul>
                 </label>
             </div>
         </div>
@@ -473,26 +478,26 @@
                   <button type ="submit" id="confirmPay"  class="govuk-button" data-module="govuk-button">
                     Proceed to payment
                   </button>
-          </div>  
-        </form>    
-           
+          </div>
+        </form>
+
           <!-- </a>  -->
       </div>
   </div>
-  
-  
+
+
   <!-- <div class="govuk-grid-row">
       <div class="govuk-grid-column-full ">
           <!-- <div class="govuk-form-group ">
               <label class="govuk-label govuk-body-l govuk-!-font-weight-bold govuk-!-font-size-24" for="amount">
                 Payment amount</label>
-                 
+
               <div class="govuk-input__wrapper">
                   <div class="govuk-input__prefix govuk-!-font-weight-bold" aria-hidden="true">£</div>
-                  
-                  {% if (data.vrm === 'LO62 NRO' ) or (data.vrm === 'LO64 NRO')  %} 
+
+                  {% if (data.vrm === 'LO62 NRO' ) or (data.vrm === 'LO64 NRO')  %}
                   <input class="govuk-input govuk-!-font-weight-bold govuk-input--width-3 govuk-!-padding-left-3" id="amount" name="amount" value="2.50" type="number" aria-describedby="amount" spellcheck="false">
-                  {% else %} 
+                  {% else %}
                   <input class="govuk-input govuk-!-font-weight-bold govuk-input--width-3 govuk-!-padding-left-3" id="amount" name="amount" value="5.00" type="number" aria-describedby="amount" spellcheck="false">
                 {% endif %}
               </div>
@@ -503,9 +508,9 @@
   <script>
                          let applePay = document.getElementById("applePay")
                          let appleSection = document.getElementById("appleSection")
-  
-                         const matchResult = window.matchMedia("(max-width : 767px)") 
-                         console.log(matchResult)       
+
+                         const matchResult = window.matchMedia("(max-width : 767px)")
+                         console.log(matchResult)
                           if (matchResult.matches){
                             applePay.classList.remove("govuk-!-display-none")
                             appleSection.classList.remove("govuk-!-display-none")
@@ -516,8 +521,8 @@
                          applePay.addEventListener("mouseout", function(){
                            applePay.setAttribute("src", `\\public\\images\\appleDefault.png`)
                          })
-  
-  
+
+
                          //Autofill payment details form
                          let confirmPay = document.getElementById("confirmPay")
                          let cardFields  = document.getElementsByClassName("cardFields");
@@ -540,15 +545,15 @@
                            if (cardFields[5].value===""){
                             cardFields[5].value="NW105AD"
                            }
-  
+
                            if (cardFields[6].value==""){
                             cardFields[6].value="johndoe@email.com"
                            }
                            if (cardFields[7].value==""){
                             cardFields[7].value="+44 8849 33302 "
                            }
-                          
-                          
+
+
                          })
   </script>
 
