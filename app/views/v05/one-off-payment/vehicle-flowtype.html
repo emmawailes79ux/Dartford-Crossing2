@@ -1,13 +1,18 @@
-{% extends "prototype-layout.html" %}
+{% extends "layout.html" %}
 
 {% block pageTitle %}
-  GOV.UK Prototype Kit
+What would you like to do?{% endblock %}
+
+{% block beforeContent}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
 {% endblock %}
+{% block content %}
 
 {% block content %}
 
 
-  
+
 
 
 <div class="govuk-grid-row">
@@ -18,13 +23,13 @@
 </div>
 
 <div class="govuk-grid-row ">
-  
+
     <div class="govuk-grid-column-full">
       <p class="govuk-heading-l govuk-!-font-weight-bold govuk-!-margin-bottom-3">What would you like to do?
 
         {{data["vrm"]}}
       </p>
-      
+
       <div class="govuk-warning-text">
         <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
         <strong class="govuk-warning-text__text">
@@ -54,4 +59,4 @@
     </div>
   </div>
 
-{% endblock %}    
+{% endblock %}
