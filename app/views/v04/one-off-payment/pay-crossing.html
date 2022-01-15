@@ -4,11 +4,14 @@
 GOV.UK Prototype Kit
 {% endblock %}
 
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+
 {% block content %}
 
-
-
-<a href="#" style="cursor: pointer;" class="govuk-back-link">Back</a>
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds govuk-!-margin-top-1">
         <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Pay for the Dartford Crossing (Dart
@@ -20,14 +23,14 @@ GOV.UK Prototype Kit
         <!-- <h1 class="govuk-heading-m govuk-!-margin-bottom-2">Pay for crossings</h1> -->
         <p class="govuk-body">
             Pay for crossings:</p>
-            
+
           <ul class="govuk-list govuk-list--bullet">
             <li>you've made yesterday or today</li>
             <li>you plan to make in the future</li>
           </ul>
-            <p>  
+            <p>
             Payments are valid for 12 months. <br>
-            
+
         </p>
         <details class="govuk-details" data-module="govuk-details">
           <summary class="govuk-details__summary">
@@ -81,7 +84,7 @@ GOV.UK Prototype Kit
         </label>
       </div>
     </div>
-    
+
     <button type="submit" id="plateSubmit" class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">
       Find your vehicle
     </button>
