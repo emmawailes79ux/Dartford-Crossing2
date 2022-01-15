@@ -1,12 +1,16 @@
-{% extends "prototype-layout.html" %}
+{% extends "layout.html" %}
 
 {% block pageTitle %}
-GOV.UK Prototype Kit
+Pay for future crossings
 {% endblock %}
 
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
 {% block content %}
 
- 
+
 <style>
      .gem-c-contextual-sidebar__brexit-cta {text-size-adjust: 100%;
     font-family: "GDS Transport",arial,sans-serif;
@@ -38,7 +42,7 @@ GOV.UK Prototype Kit
     <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Pay the Dartford Crossing charge (Dart Charge)
     </h1>
     <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">Add future crossings</h1>
-    
+
     <!-- <details class="govuk-details" data-module="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
@@ -85,7 +89,7 @@ GOV.UK Prototype Kit
         You have 2 unpaid crossings. If you do not pay for a crossing you could get a penalty charge notice (PCN).
       </strong>
     </div> -->
-   
+
     <div class="govuk-body">It costs <b>£2.50 per crossing</b> for a car. </div>
     <div class="govuk-form-group">
       <label class="govuk-label" for="sort">
@@ -147,7 +151,7 @@ GOV.UK Prototype Kit
       <a class="govuk-link" data-module="gem-track-click" data-track-category="relatedLinkClicked" data-track-action="1.0 Transition" data-track-label="/brexit" data-track-dimension="Check what you need to do" data-track-dimension-index="29" lang="en" href="/brexit">Check what you need to do</a>
   </p>
   </div>  -->
-  
+
 </div>
 <!-- <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">

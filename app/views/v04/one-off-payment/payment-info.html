@@ -1,12 +1,17 @@
-{% extends "prototype-layout.html" %}
+{% extends "layout.html" %}
 
 {% block pageTitle %}
-  GOV.UK Prototype Kit
+Pay for crossings without an account
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
 {% endblock %}
 
 {% block content %}
 
-  
+
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds error-summary" style="display: none; margin-bottom:-60px">
         <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
@@ -39,7 +44,7 @@
           <i>{{data['vrm-1']}} has 2 unpaid charges</i>
         </div>
       {% endif %}
-        
+
         <h5 class="govuk-heading-m"> Please select the number of crossings you would like to pay for.</h5>
         <div class="govuk-form-group select-box govuk-!-margin-bottom-3">
             <label class="govuk-label" for="trips">
@@ -48,24 +53,24 @@
                     <option value="2"  {% if (data.vrm === 'LO61 NRO') or (data.vrm === 'LO63 NRO') %} selected {% endif %}>2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                </select> 
+                </select>
             </label>
         </div>
-       
+
         <p class="govuk-body"> Each crossing is <span class="govuk-!-font-weight-bold">£2.50.</span>
-        <br/> 
+        <br/>
         Northbound and southbound journeys are counted as separate crossings.
         </p>
-        
+
 
         <div class="govuk-form-group ">
             <label class="govuk-label govuk-body-l govuk-!-font-weight-bold govuk-!-font-size-24" for="amount">Payment amount</label>
-               
+
             <div class="govuk-input__wrapper govuk-grid-column-two-third">
              <div class="govuk-input__prefix govuk-!-font-weight-bold" aria-hidden="true">£</div>
-             {% if (data.vrm === 'LO62 NRO' ) or (data.vrm === 'LO64 NRO')  %} 
+             {% if (data.vrm === 'LO62 NRO' ) or (data.vrm === 'LO64 NRO')  %}
               <input class="govuk-input govuk-!-font-weight-bold govuk-input--width-3 govuk-!-padding-left-3" id="amount" name="amount" value="2.50" type="number" aria-describedby="amount" spellcheck="false">
-              {% else %} 
+              {% else %}
               <input class="govuk-input govuk-!-font-weight-bold govuk-input--width-3 govuk-!-padding-left-3" id="amount" name="amount" value="5.00" type="number" aria-describedby="amount" spellcheck="false">
               {% endif %}
           </div>
