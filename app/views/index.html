@@ -76,7 +76,7 @@
 <h2 class="govuk-heading-m">Research sessions</h2>
                 <th scope="col" class="govuk-table__header">Sprint</th>
                 <th scope="col" class="govuk-table__header">No of <br>participants</th>
-                <th scope="col" class="govuk-table__header">Confidence</th>
+                <th scope="col" class="govuk-table__header">UR Confidence</th>
                 <th scope="col" class="govuk-table__header">Link to research findings</th>
               </tr>
             </thead>
@@ -95,7 +95,7 @@
                 <td class="govuk-table__cell">12</td>
                 <td class="govuk-table__cell">5</td>
                 <td class="govuk-table__cell">
-                  <span class="govuk-tag govuk-tag--red">Low</span>
+                  <span class="govuk-tag govuk-tag--yellow">Medium</span>
                   <td class="govuk-table__cell">
                     <a href="https://docs.google.com/presentation/d/1XYrMFy0_yr1G7J49WCsii_PAVEEoHPJZFEkUnoNLBNs/edit?usp=sharing" class="govuk-link rel="noreferrer noopener" target="_blank">Research document
     </a>
@@ -126,18 +126,37 @@
                     <li>postcode - DA1 1DY</li>
                     <li>address - 3 Bark Road, Dartford, Kent DA1 1DY</li>
                   </ul>
+<!--errors -->
 
-<!--v04-->
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <h2 class="govuk-heading-m">Error messages -WIP</h2>
+        <ul class="govuk-list govuk-list--bullet">
+            <li><a class="govuk-link" href="unhappy-paths/service/problem">
+           Sorry, there is a problem with the service<span class="govuk-visually-hidden">Start</span></a></li>
+            <li><a class="govuk-link" href="unhappy-paths/service/problem">
+           Page not found<span class="govuk-visually-hidden">Start</span></a></li>
+            <li><a class="govuk-link" href="unhappy-paths/service/problem">
+           Incorrect password<span class="govuk-visually-hidden">Start</span></a></li>
+            <li><a class="govuk-link" href="http://localhost:3000/v05/start">
+           Passwords don't match<span class="govuk-visually-hidden">Start</span></a></li>
+            <li><a class="govuk-link" href="http://localhost:3000/v05/start">
+           Wrong format<span class="govuk-visually-hidden">Start</span></a></li>
+            <li><a class="govuk-link" href="http://localhost:3000/v05/start">
+           No password entered<span class="govuk-visually-hidden">Start</span></a></li>
+          </ul>
+
+<!--v05-->
     <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
     <h2 class="govuk-heading-m">Version 05 - Current in-progress version</h2>
     <a href="/v05/start" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
        View prototype</a>
-    <!--V04 summary list-->
+    <!--V05 summary list-->
        <dl class="govuk-summary-list">
          <div class="govuk-summary-list__row">
            <dt class="govuk-summary-list__key">
-             Screen name
+             Error message
            </dt>
            <dd class="govuk-summary-list__key">
              Changes made
@@ -145,32 +164,40 @@
          </div>
          <div class="govuk-summary-list__row">
            <dt class="govuk-summary-list__value">
-             <a class="govuk-link" href="http://localhost:3000/v04/start">
+             <a class="govuk-link" href="/v05/start">
             Start<span class="govuk-visually-hidden">Start</span></a>
            </dt>
            <dd class="govuk-summary-list__value">
-             Nicks page
+             Updated content for start page
            </dd>
 
          </div>
          <div class="govuk-summary-list__row">
            <dt class="govuk-summary-list__value">
-             <a class="govuk-link" href="http://localhost:3000/v04/create-account/create-start">
+             <a class="govuk-link" href="http://localhost:3000/v05/create-account/create-start">
             Create your account <span class="govuk-visually-hidden">Create your account </span>
                  </a>
            </dt>
            <dd class="govuk-summary-list__value">
-            Iterations on Feedback from research   </dd>
+          Iterations from feedback.<br>Simplifying LRDS application as part of create account flow.</dd>
          </div>
-
          <div class="govuk-summary-list__row">
            <dt class="govuk-summary-list__value">
-             <a class="govuk-link" href="#">
+             <a class="govuk-link" href="http://localhost:3000/v05/create-account/create-start">
+            Create your account <span class="govuk-visually-hidden">Create your account </span>
+                 </a>
+           </dt>
+           <dd class="govuk-summary-list__value">
+          Add option to sign up to notifications</dd>
+         </div>
+         <div class="govuk-summary-list__row">
+           <dt class="govuk-summary-list__value">
+             <a class="govuk-link" href="http://localhost:3000/v05/create-account/notifications">
             One off payment flow<span class="govuk-visually-hidden">One off payment flow</span>
                  </a>
            </dt>
            <dd class="govuk-summary-list__value">
-             Transfer from other prototype plus Content changes  </dd>
+             Content changes </dd>
          </div>
 
       <!--   <div class="govuk-summary-list__row">
@@ -202,7 +229,7 @@
      </div>
      <div class="govuk-summary-list__row">
        <dt class="govuk-summary-list__value">
-         <a class="govuk-link" href="http://localhost:3000/v04/start">
+         <a class="govuk-link" href="../v04/start">
         Start<span class="govuk-visually-hidden">Start</span></a>
        </dt>
        <dd class="govuk-summary-list__value">

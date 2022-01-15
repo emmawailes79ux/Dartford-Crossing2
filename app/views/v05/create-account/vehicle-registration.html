@@ -22,13 +22,24 @@ Step 3 - Add a vehicle
             <form action="confirm-vehicle" method="post">
               <div class="govuk-form-group">
           <h3 class="govuk-label-wrapper">
+
+            <div class="govuk-form-group">
+                <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="vrn">
+                    Number plate</label>
+                  </h1>
+                     <div id="event-name-hint" class="govuk-hint">For example, CU57ABC
+<div>
+                <input class="govuk-input govuk-input--width-10" id="vrn" name="vrn" type="text">
+              </div>
+
+<!--
             <label class="govuk-label govuk-label" for="registration-number">
               number plate
 <br>For example, CU57ABC
             </label>
           </h3>
           <input class="govuk-input govuk-input--width-10" id="registration-number" name="vehicle-registration" value="{{ data['vehicle-registration'] }}" type="text">
-        </div>
+      -->  </div>
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
         <!--<p>*You can add more vehicles later in your account.</p>
