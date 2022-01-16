@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Get Notifications
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="payment1" method="post">
+          <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Your account</h1>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="notifications">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  How do you want to be notified?
+                </h1>
+              </legend>
+              <div id="notifications" class="govuk-hint">
+                Select all that apply.
+              </div>
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="crossing" name="crossing" type="checkbox" value="crossing">
+                  <label class="govuk-label govuk-checkboxes__label" for="notifications1">
+                   Email
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="crossing" name="crossing" type="checkbox" value="crossing">
+                  <label class="govuk-label govuk-checkboxes__label" for="notifications2">
+Mobile </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="crossing" name="crossing" type="checkbox" value="crossing">
+                  <label class="govuk-label govuk-checkboxes__label" for="notifications2">
+                    Post</label>
+                </div>
+
+              </div>
+
+            </fieldset>
+          </div>
+
+
+
+              {{ govukButton({
+                  text: "Continue"
+              }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
