@@ -1,10 +1,5 @@
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 
-{% block pageTitle %}
-Create your account
-{% endblock %}
-
-
 <!DOCTYPE html>
 <!--<html lang="en" class="govuk-template ">
   <head>
@@ -72,12 +67,12 @@ GOV.UK Prototype Kit
                bgCardset.style.opacity="1";
                 fgCardset.style.opacity="1";
             }
-            
+
              // charCount.textContent = `You have entered ${e.target.value.length} characters in the input field and ${e.target.value} is what you are typing`;
           }
-          
 
-// This is an example in vanilla 
+
+// This is an example in vanilla
 // 					let input = document.querySelector('input');
 // 					let log = document.getElementById('log');
 
@@ -141,7 +136,7 @@ GOV.UK Prototype Kit
 
     <div class="govuk-header__content">
 
-    
+
     <a href="flow1" class="govuk-header__link govuk-header__link--service-name">
       Pay for the Dartford Crossing (Dart Charge)
     </a>
@@ -165,11 +160,11 @@ GOV.UK Prototype Kit
             </span>
           </p>
 
-        </div>     
+        </div>
         <a href="flow4" class="govuk-back-link">Back</a></div>
-        
-       
- 
+
+
+
 
 
 <div class="govuk-width-container">
@@ -197,7 +192,7 @@ GOV.UK Prototype Kit
                 <!-- <th scope="col" class="govuk-table__header  govuk-!-width-one-quarter" style="text-align: center;">Time left till
                   escalation</th> -->
 
-                
+
                 <th scope="col" class="govuk-table__header govuk-table__header" ><span title="Penalty charge notice">PCN<span> number</th>
                 <th scope="col" class="govuk-table__header govuk-table__header" >Amount owed</th>
                 <th scope="col" class="govuk-table__header govuk-!-width-one-third" >Time and date of
@@ -272,10 +267,10 @@ GOV.UK Prototype Kit
 
           <input class="govuk-input govuk-!-width-two-thirds" id="cardset" name="event-name" type="text" maxlength="15" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
                   </div>
-        <div class="govuk-!-margin-bottom-2" style="position:relative;"><img src ="\public\images\cardarray.png" id="bgCardset" style=" position: absolute;" class="govuk-!-width-two-thirds" alt="supported cards"/> 
+        <div class="govuk-!-margin-bottom-2" style="position:relative;"><img src ="\public\images\cardarray.png" id="bgCardset" style=" position: absolute;" class="govuk-!-width-two-thirds" alt="supported cards"/>
          <img src ="\public\images\cardarrayAMEX.png" id="fgCardset" style="max-width: 7.966461%; height:auto;  z-index: 9;" alt="AMEX"/></div>
 
-  
+
         <div id="event-name-hint" class="govuk-hint">
           Accepted credit and debit card types
         </div>
@@ -295,13 +290,13 @@ GOV.UK Prototype Kit
             Year
           </label>
 
-          <input class="govuk-input govuk-input--width-4" id="width-4" name="width-4" type="text" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></div>  
+          <input class="govuk-input govuk-input--width-4" id="width-4" name="width-4" type="text" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></div>
           <div class="govuk-form-group govuk-!-margin-top-0">
             <label class="govuk-label" for="width-2">
               Name on card
 
             </label>
-            <input class="govuk-input govuk-!-width-one-half"  type="text"></div> 
+            <input class="govuk-input govuk-!-width-one-half"  type="text"></div>
           <div class="govuk-form-group govuk-!-margin-top-0 govuk-!-margin-right-2 govuk-!-display-inline-block" >
             <label class="govuk-label" for="width-5">
                 Card security code
@@ -309,7 +304,7 @@ GOV.UK Prototype Kit
                   The last three digits on the back of the card
                 </div>
               </label>
-              <input class="govuk-input govuk-input--width-4"  type="text" maxlength="3" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>              
+              <input class="govuk-input govuk-input--width-4"  type="text" maxlength="3" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
               <div class="govuk-!-display-inline-block" style=" position:relative; top:0.7em;">
                <svg
                 xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -532,7 +527,7 @@ GOV.UK Prototype Kit
                  </g>
                </g>
              </svg>
-             </div>  
+             </div>
             </div>
              <div class="govuk-form-group">
               <label class="govuk-label" for="width-10">
@@ -697,9 +692,33 @@ GOV.UK Prototype Kit
         </main>
       </div>
 
-
-
-    <footer class="govuk-footer " role="contentinfo">
+        {% block footer %}
+          {{ govukFooter({
+            meta: {
+              items: [
+              {
+                href: "/v01/footer/accessibility",
+                text: "Accessibility statement"
+              },
+              {
+                href: "/v01/footer/cookies",
+                text: "Cookies"
+              },
+              {
+                href: "/v01/footer/privacy-policy",
+                text: "Privacy policy"
+              },
+                {
+                  href: "/prototype-admin/clear-data",
+                  text: "Clear data"
+                }
+              ],
+              visuallyHiddenTitle: "Footer links"
+            }
+          }) }}
+        {% endblock %}
+      {% endif %}
+  <footer class="govuk-footer " role="contentinfo">
   <div class="govuk-width-container ">
 
     <div class="govuk-footer__meta">
@@ -757,8 +776,6 @@ GOV.UK Prototype Kit
     </div>
   </div>
 </footer>
-
-
 
 
 

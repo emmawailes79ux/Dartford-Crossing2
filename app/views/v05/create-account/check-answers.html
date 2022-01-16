@@ -23,7 +23,7 @@ Check your answers
             Full Name
           </dt>
           <dd class="govuk-summary-list__value">
-              {{data['name']}}<!--Alex Lee-->
+            {{ data['full-name']}}<!--Alex Lee-->
           </dd>
           <dd class="govuk-summary-list__actions">
             <a href="#">
@@ -37,14 +37,11 @@ Check your answers
             Address
           </dt>
           <dd class="govuk-summary-list__value">
-            {{data['address']}}
-            3 Bark Road
-            <br> Dartford
-            <br> Kent
-            <br>DA1 1DY
+            {{ data['select-address']}}
+            <br>{{data['address-postcode']}}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="#">
+            <a href="addresslookup">
               Change
               <span class="govuk-visually-hidden"> contact information</span>
             </a>
@@ -54,20 +51,36 @@ Check your answers
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Contact details
+            Email address
           </dt>
           <dd class="govuk-summary-list__value">
-              <p>alex.lee@gmail.com</p>
-              <p>0789912345</p>
+            {{ data['email']}}
+
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="#">
+            <a href="email">
               Change
               <span class="govuk-visually-hidden"> contact details</span>
             </a>
           </dd>
         </div>
 
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Phone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['phone-number']}}
+              <!--<p>alex.lee@gmail.com</p>-->
+              <!--<p>0789912345</p>-->
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="mobile">
+              Change
+              <span class="govuk-visually-hidden"> contact details</span>
+            </a>
+          </dd>
+        </div>
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -170,7 +183,7 @@ Check your answers
     </div>
     <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
-      Address card is registered to
+      Postcode card is registered at
     </dt>
  <dd class="govuk-summary-list__value">
         {{data['address']}}

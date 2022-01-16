@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Step 2 - Select your address
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="vehicle-registration" method="post">
+        <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Where you live</h1>
+          <fieldset class="govuk-fieldset">
+            <h2 class="govuk-heading-l">Select an address</h2>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="address-postcode">
+            </label>
+    <h2 class="govuk-heading-s">1 address found for {{ data['address-no'] }} and {{ data['address-postcode'] }}</h2>
+
+    <!--                <select class="govuk-select" id="select-address" name="select-address">
+                <option value="addressfound" selected>8 addresses found</option>
+                <option value="published">1 Bark Road, Dartford, Kent DA1 1DY</option>
+                <option value="published">3 Bark Road, Dartford, Kent DA1 1DY</option>
+                <option value="published">5 Bark Road, Dartford, Kent DA1 1DY</option>
+                <option value="published">7 Bark Road, Dartford, Kent DA1 1DY</option>
+                <option value="published">9 Bark Road, Dartford, Kent DA1 1DY</option>
+                <option value="published">11 Bark Road, Dartford, Kent DA1 1DY</option>
+                <option value="published">15 Bark Road, Dartford, Kent DA1 1DY</option>
+                <option value="published">17 Bark Road, Dartford, Kent DA1 1DY</option>
+            </select>
+-->
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  idPrefix: "where-do-you-live",
+  name: "where-do-you-live",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "postcode1",
+      text: "3 Bark Road, Dartford, Kent"
+    },
+    {
+      value: "postcode2",
+      text: "3a Bark Road, Dartford, Kent"
+    }
+  ]
+}) }}
+
+<div class="govuk-inset-text">
+    Your postcode has been recognised as a valid Local Resident Discount Scheme (LRDS) postcode.<br>
+      <a href='../lrds/LRDS-start'>Find out more about the LRDS discount (opens in new tab)</a>
+  </div>
+        </fieldset>
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+        <p class='govuk-body'><a href='addressmanual'>My address is not listed</a></p>
+
+      <!--  <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Why we ask for your address </span>
+          </summary>
+          <div class="govuk-details__text">
+            Text here
+          </div>
+        </details>
+-->
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

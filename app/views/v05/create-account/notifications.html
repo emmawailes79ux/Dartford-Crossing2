@@ -14,25 +14,75 @@ Get Notifications
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form action="payment1" method="post">
-          <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Step 4 - Your account</h1>
-          <h1 class="govuk-heading-l">Enter your phone number</h1>
+          <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Your account</h1>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="notifications">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  When do you want to be notified?
+                </h1>
+              </legend>
+              <div id="notifications" class="govuk-hint">
+                Select all that apply.
+              </div>
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="crossing" name="crossing" type="checkbox" value="crossing">
+                  <label class="govuk-label govuk-checkboxes__label" for="notifications1">
+                   I have made a crossing and need to pay
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="not-paid" name="not-paid" type="checkbox" value="not-paid">
+                  <label class="govuk-label govuk-checkboxes__label" for="notifications2">
+                   I have not paid for a crossing and I am approaching the deadline
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id=deadline name="deadline" type="checkbox" value="deadline">
+                  <label class="govuk-label govuk-checkboxes__label" for="notifications3">I've missed the deadline
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="balance" name="balance" type="checkbox" value="balance">
+                  <label class="govuk-label govuk-checkboxes__label" for="notifications4">Regular balance updates
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="low-balance" name="low-balance" type="checkbox" value="low-balance">
+                  <label class="govuk-label govuk-checkboxes__label" for="notifications5">My account balance is getting low
+                  </label>
+                </div>
 
-              {{ govukFieldset({
-                  legend: {
-                      html: "",
-                      classes: "govuk-fieldset__legend--l",
-                      isPageHeading: true
-                  }
-              })}}
-
-              {{ govukInput({
-                  label: {
-                      text: "We will use this to send you a security code by text message"
-                  },
-                  id: "phone-number",
-                  name: "phone-number",
-                  classes: "govuk-input--width-10"
-              }) }}
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="card" name="card" type="checkbox" value="card">
+                  <label class="govuk-label govuk-checkboxes__label" for="notifications6">A registered card is expiring soon
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id=account name="account" type="checkbox" value="account">
+                  <label class="govuk-label govuk-checkboxes__label" for="notifications7">My account details need updating
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id=traffic name="traffic" type="checkbox" value="traffic">
+                  <label class="govuk-label govuk-checkboxes__label" for="notifications8">Crossing traffic updates
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id=marketing name="marketing" type="checkbox" value="marketing">
+                  <label class="govuk-label govuk-checkboxes__label" for="notifications9">Marketing updates
+                  </label>
+                </div>
+                <p> or</p>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id=details name="details" type="checkbox" value="Details">
+                  <label class="govuk-label govuk-checkboxes__label" for="notifications10">None of the above
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
 
               {{ govukButton({
                   text: "Continue"

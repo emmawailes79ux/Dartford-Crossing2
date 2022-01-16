@@ -10,20 +10,20 @@ GOV.UK Prototype Kit
 
 </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="theme-color" content="#0b0c0c"> 
-    
+    <meta name="theme-color" content="#0b0c0c">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    
+
       <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/govuk/assets/images/favicon.ico" type="image/x-icon">
-      <link rel="mask-icon" href="/govuk/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="mask-icon" href="/govuk/assets/images/govuk-mask-icon.svg" color="#0b0c0c">
       <link rel="apple-touch-icon" sizes="180x180" href="/govuk/assets/images/govuk-apple-touch-icon-180x180.png">
       <link rel="apple-touch-icon" sizes="167x167" href="/govuk/assets/images/govuk-apple-touch-icon-167x167.png">
       <link rel="apple-touch-icon" sizes="152x152" href="/govuk/assets/images/govuk-apple-touch-icon-152x152.png">
       <link rel="apple-touch-icon" href="/govuk/assets/images/govuk-apple-touch-icon.png">
-    
 
-    
+
+
   <!--[if lte IE 8]><link href="/public/stylesheets/application-ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
 <!--[if gt IE 8]><!--><link href="/public/stylesheets/application.css" media="all" rel="stylesheet" type="text/css" /><!--<![endif]-->
 <style>
@@ -42,8 +42,8 @@ overflow:hidden;
   let roper = JSON.parse(localStorage.getItem("pcnDetailsTable"));
   let cardEntriesPCN = JSON.parse(localStorage.getItem("cardEntriesPCN"));
 </script>
-    
-    
+
+
     <meta property="og:image" content="/govuk/assets/images/govuk-opengraph-image.png">
   </head>
   <body class="govuk-template__body "><script id="__bs_script__">//<![CDATA[
@@ -51,15 +51,15 @@ overflow:hidden;
 //]]></script>
 
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
-    
 
-    
+
+
       <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
 
-    
 
-    
-  
+
+
+
   <header class="govuk-header " role="banner" data-module="govuk-header">
   <div class="govuk-header__container govuk-width-container">
     <div class="govuk-header__logo">
@@ -88,24 +88,24 @@ overflow:hidden;
             GOV.UK
           </span>
         </span>
-        
+
       </a>
     </div>
-    
+
     <div class="govuk-header__content">
-    
+
     <a href="flow1" class="govuk-header__link govuk-header__link--service-name">
       Pay for the Dartford Crossing (Dart Charge)
     </a>
-    
-    
+
+
     </div>
-    
+
   </div>
 </header>
 
 
-    
+
       <div class="govuk-width-container ">
         <div class="govuk-width-container app-width-container"><div class="govuk-phase-banner">
           <p class="govuk-phase-banner__content">
@@ -116,11 +116,11 @@ overflow:hidden;
               This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
             </span>
           </p>
-        </div>     
+        </div>
         <!-- <a href="flow3" class="govuk-back-link">Back</a></div> -->
-        
-       
-          
+
+
+
 
 
 
@@ -133,9 +133,9 @@ overflow:hidden;
       Your Payment reference: <br><strong>HDJ2123F</strong>
     </div>
   </div> -->
-  
 
-  
+
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <div class="govuk-panel govuk-panel--confirmation">
@@ -146,7 +146,7 @@ overflow:hidden;
           Your Payment reference: <br><strong>HDJ2123F</strong>
         </div>
       </div>
-        
+
       <p class="govuk-body">We have sent a confirmation email to <span id="email">sandraphilips@email.com</span>  with confirmation of details of the relevant penalty charge notices (PCN).</p>
         <!-- <h2 class="govuk-heading-l">Enter your Vehicle registration number</h2>
       <p class="govuk-body">If you want to:</p>
@@ -154,7 +154,7 @@ overflow:hidden;
         <li>pay or challenge a Penalty Charge Notice (PCN), or</li>
         <li>check if there is a PCN for your vehicle</li>
       </ul> -->
-      <table class="govuk-table">  
+      <table class="govuk-table">
         <tbody id="tbody" class="govuk-table__body">
           <!-- <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Registration number</th>
@@ -175,12 +175,12 @@ overflow:hidden;
           <!-- <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Contravention time and date</th>
             <td class="govuk-table__cell">07:32 on 1 August 2019</td>
-          </tr>                                          
+          </tr>
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Location</th>
             <td class="govuk-table__cell">The A282 Trunk Road Dartford
               Crossing Southbound Bridge</td>
-          </tr>                                          
+          </tr>
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Charge</th>
             <td class="govuk-table__cell"> <b>£70</b> (if paid before 20 Aug 2019)
@@ -222,12 +222,28 @@ overflow:hidden;
         <h3 class = "govuk-heading-m">Manage Dart Charge payments</h3>
         <!-- <p class = "govuk-body">To prevent future <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span>s you can <a href = "flow12">create a Dart Charge account</a> and either pre-pay or pay
           automatically as you make a crossing.</p> -->
-        <p class = "govuk-body">Use <a href=" https://dart-charge-prototype.herokuapp.com/landing">Dart Charge</a>  to:</p> 
-        <ul class="govuk-list govuk-list--bullet">
-          <li class="">set up a prepay account</li>
+      <!--  <p class = "govuk-body">Don't forget to you can use Dart Charge</a>  to:</p>-->
+          <ul class="govuk-list">Don't forget to you can use Dart Charge</a>  to:
+<li>
+              <a class="govuk-link" href="../create-account/create-start">set up an account</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="../one-off-payment/pay-crossing">make a single payment</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="../manage-account/dashboard-summary">check your payments</a>
+            </li>
+          <!--  <li>
+              <a class="govuk-link" href="#">More</a>
+            </li>-->
+          </ul>
+<!--
+
+
+          <li class="">set up an account</li>
           <li class="">make a single payment</li>
           <li class="">check your payment</li>
-        </ul>  
+        </ul>-->
         <!-- <p class = "govuk-body">You can also make a representation by post by filling in the form on the penalty charge
             notice and posting it to:</p>
         <h3 class = "govuk-heading-s">Dart Charge Enforcement</h3>
@@ -242,58 +258,58 @@ overflow:hidden;
         <p class ="govuk-body"><b>Telephone</b><br>
             0808 157 3900</p>
         <p class ="govuk-body"><b>Textphone</b><br>
-            0808 157 3909</p>        
-        
+            0808 157 3909</p>
+
         <p class ="govuk-body"><b>Outside UK</b><br>
             +44 0808 157 0192</p>
         <p class ="govuk-body"><b>Opening times</b><br>
-            Monday to Friday: 8am to 8pm</p>      
+            Monday to Friday: 8am to 8pm</p>
         <p class ="govuk-body"><b>Closed:</b><br>
             Easter Sunday, Christmas Day, Boxing Day and New Year’s Day.</p>       -->
-        </div>                        
-    </div>  
-    <div class="govuk-grid-column-one-third">
-      
+        </div>
     </div>
-                      
+    <div class="govuk-grid-column-one-third">
+
+    </div>
+
 
       </div>
-  
+
     </main>
   </div>
 
 
         </main>
       </div>
-    
+
 <br><br><br><br>
-    
+
     <footer class="govuk-footer " role="contentinfo">
   <div class="govuk-width-container ">
-    
+
     <div class="govuk-footer__meta">
       <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
-        
+
           <h2 class="govuk-visually-hidden">Support links</h2>
-          
+
             <ul class="govuk-footer__inline-list">
-              
+
                 <li class="govuk-footer__inline-list-item">
                   <a class="govuk-footer__link" href="https://govuk-prototype-kit.herokuapp.com/">
                     GOV.UK Prototype Kit v9.14.1
                   </a>
                 </li>
-              
+
                 <li class="govuk-footer__inline-list-item">
                   <a class="govuk-footer__link" href="/prototype-admin/clear-data">
                     Clear data
                   </a>
                 </li>
-              
+
             </ul>
-          
-          
-        
+
+
+
         <svg
           aria-hidden="true"
           focusable="false"
@@ -327,17 +343,17 @@ overflow:hidden;
   </div>
 </footer>
 
-  
 
-    
-  
+
+
+
     <!-- Javascript -->
 <script src="/public/javascripts/jquery-1.11.3.js"></script>
 
 
 <script>
-  
-  
+
+
 
         let vandal = []
         if (typeof(roper[0])=="string"){
@@ -346,9 +362,9 @@ overflow:hidden;
         let chargeCummulator = 0
         let pcns ="";
         for (i=0; i<vandal.length; i++){
-          pcns += `${vandal[i][5]} <br>`                
+          pcns += `${vandal[i][5]} <br>`
           chargeCummulator += parseInt(vandal[i][11].split('£')[1]);
-  
+
         }
         $(document).ready(function(){
         let email = document.getElementById("email")
@@ -387,8 +403,8 @@ overflow:hidden;
   <script src="/public/javascripts/auto-store-data.js"></script>
 
 
-    
-  
+
+
   <!-- GOV.UK Prototype Kit v9.14.1 -->
 
   </body>
