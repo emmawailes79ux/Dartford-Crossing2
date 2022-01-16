@@ -1,13 +1,18 @@
-{% extends "prototype-layout.html" %}
+{% extends "layout.html" %}
 
 {% block pageTitle %}
-  GOV.UK Prototype Kit
+Pay for your crossings
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
 {% endblock %}
 
 {% block content %}
 
 
-  
+
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full govuk-!-margin-top-6">
         <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Pay the Dartford Crossing charge (Dart Charge)</h1>
@@ -45,4 +50,4 @@
             aria-label="Next" />
     </div>
 
-{% endblock %}    
+{% endblock %}

@@ -1,13 +1,18 @@
-{% extends "prototype-layout.html" %}
+{% extends "layout.html" %}
 
 {% block pageTitle %}
-  GOV.UK Prototype Kit
+Confirm payment
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
 {% endblock %}
 
 {% block content %}
 
 
-  
+
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full govuk-!-margin-top-6">
         <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Pay the Dartford Crossing charge (Dart Charge)</h1>
@@ -35,7 +40,7 @@
                       </tr>
                       <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">Name on card</th>
-                        <td class="govuk-table__cell">John Doe</td>
+                        <td class="govuk-table__cell">Alex Lee</td>
                         <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">Change</a></td>
                       </tr>
                       <tr class="govuk-table__row">
@@ -52,13 +57,13 @@
                 </table>
             </div>
         </div>
-        
-    
+
+
         <div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-4">
             <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Payment amount</h3>
             <h1 id="chargeAmount" class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">£5.00</h1>
         </div>
-    
+
         <a href="success"
           class="govuk-button"
           data-module="govuk-button"

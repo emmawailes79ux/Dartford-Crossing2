@@ -1,13 +1,18 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  GOV.UK Prototype Kit
+Confirm your payment details
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
 {% endblock %}
 
 {% block content %}
 
 
-  
+
 
 
 <div class="govuk-grid-row">
@@ -23,13 +28,13 @@
         <!-- <div class="govuk-form-group ">
             <label class="govuk-label govuk-body-l govuk-!-font-weight-bold govuk-!-font-size-24" for="amount">
               Payment amount</label>
-               
+
             <div class="govuk-input__wrapper">
                 <div class="govuk-input__prefix govuk-!-font-weight-bold" aria-hidden="true">£</div>
-               
-                {% if (data.vrm === 'LO62 NRO' ) or (data.vrm === 'LO64 NRO')  %} 
+
+                {% if (data.vrm === 'LO62 NRO' ) or (data.vrm === 'LO64 NRO')  %}
                 <input class="govuk-input govuk-!-font-weight-bold govuk-input--width-3 govuk-!-padding-left-3" id="amount" name="amount" value="2.50" type="number" aria-describedby="amount" spellcheck="false">
-                {% else %} 
+                {% else %}
                 <input class="govuk-input govuk-!-font-weight-bold govuk-input--width-3 govuk-!-padding-left-3" id="amount" name="amount" value="5.00" type="number" aria-describedby="amount" spellcheck="false">
               {% endif %}
             </div>
@@ -37,40 +42,40 @@
          -->
         <!-- <table class="govuk-table">
           <tbody id="tbody" class="govuk-table__body">
-            <tr class="govuk-table__row">                
+            <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header govuk-table__header govuk-!-padding-right-1" >Number plate</th>
               <td class="govuk-table__cell govuk-table__cell govuk-!-padding-right-1" >{{data['vrn']}}</td>
               <td class="govuk-table__cell govuk-table__cell" ><a href="">Change</a></td>
             </tr>
-            <tr class="govuk-table__row">                
+            <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header govuk-table__header govuk-!-padding-right-1" >Number of crossings</th>
               <td class="govuk-table__cell govuk-table__cell govuk-!-padding-right-1" >4</td>
               <td class="govuk-table__cell govuk-table__cell" ><a href="">Change</a></td>
             </tr>
-            <tr class="govuk-table__row">                
+            <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header govuk-table__header govuk-!-padding-right-1" >Card number</th>
               <td class="govuk-table__cell govuk-table__cell govuk-!-padding-right-1" >*************4578</td>
               <td class="govuk-table__cell govuk-table__cell" ><a href="">Change</a></td>
-            </tr>            
-            <tr  class="govuk-table__row">                
+            </tr>
+            <tr  class="govuk-table__row">
               <th scope="col" class="govuk-table__header govuk-table__header govuk-!-padding-right-1" >Expiry date</th>
               <td class="govuk-table__cell govuk-table__cell govuk-!-padding-right-1"  name="pay" style=>05/2025</td>
               <td class="govuk-table__cell govuk-table__cell" ><a href="">Change</a></td>
             </tr>
-            <tr class="govuk-table__row">                
+            <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header govuk-table__header govuk-!-padding-right-1" >Name on card</th>
-              <td class="govuk-table__cell govuk-table__cell govuk-!-padding-right-1" name="pay" >Mr John Doe</td>
+              <td class="govuk-table__cell govuk-table__cell govuk-!-padding-right-1" name="pay" >Mr Alex Lee</td>
               <td class="govuk-table__cell govuk-table__cell" ><a href="">Change</a></td>
             </tr>
-            <tr class="govuk-table__row">               
+            <tr class="govuk-table__row">
              <th scope="col" class="govuk-table__header govuk-table__header govuk-!-padding-right-1" >Postcode</th>
              <td class="govuk-table__cell govuk-table__cell govuk-!-padding-right-1" name="pay" >E13 2BA</td>
              <td class="govuk-table__cell govuk-table__cell" ><a href="">Change</a></td>
            </tr>
-           <tr class="govuk-table__row">               
+           <tr class="govuk-table__row">
              <th scope="col" class="govuk-table__header govuk-table__header govuk-!-padding-right-1" >Email address</th>
              <td class="govuk-table__cell govuk-table__cell govuk-!-padding-right-1" name="pay" >sarah.philips@example.com</td>
-             <td class="govuk-table__cell govuk-table__cell" ><a href="">Change</a></td>               
+             <td class="govuk-table__cell govuk-table__cell" ><a href="">Change</a></td>
            </tr>
           </tbody>
         </table>   -->

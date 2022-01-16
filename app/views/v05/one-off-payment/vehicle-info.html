@@ -1,12 +1,17 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-GOV.UK Prototype Kit
+Your vehicle
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
 {% endblock %}
 
 {% block content %}
 
- 
+
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full govuk-!-margin-top-1">
         <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Pay the Dartford Crossing Charge (Dart Charge)
@@ -19,7 +24,7 @@ GOV.UK Prototype Kit
     <div class="govuk-grid-column-two-thirds">
         <p class="gov-uk-body">Please check details below to confirm they're correct</p>
         <table class="govuk-table ">
-           
+
 
             <tr class="govuk-table__row">
                 <td scope="col" class="govuk-table__header govuk-body ">Number plate</td>

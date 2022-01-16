@@ -1,12 +1,18 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-GOV.UK Prototype Kit
+Pay for recent crossings
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
 {% endblock %}
 
 {% block content %}
 
- 
+
 <style>
      .gem-c-contextual-sidebar__brexit-cta {text-size-adjust: 100%;
     font-family: "GDS Transport",arial,sans-serif;
@@ -90,7 +96,7 @@ GOV.UK Prototype Kit
           </strong>
         </div>
         {%endif%}
-   
+
     <div class="govuk-body">It costs <b>£2.50 per crossing</b> for a car. </div><br>
 
 
@@ -128,7 +134,7 @@ GOV.UK Prototype Kit
     </div>
     <div class="govuk-body govuk-!-margin-bottom-5">
       You can now proceed to payment or pay for additional future crossings.
-    </div> 
+    </div>
     <div class="govuk-button-group">
     <button onClick="location.href='./payment-options'" id="confirmPay"  class="govuk-button" data-module="govuk-button">
       Proceed to payment
@@ -144,7 +150,7 @@ GOV.UK Prototype Kit
       <a class="govuk-link" data-module="gem-track-click" data-track-category="relatedLinkClicked" data-track-action="1.0 Transition" data-track-label="/brexit" data-track-dimension="Check what you need to do" data-track-dimension-index="29" lang="en" href="/brexit">Check what you need to do</a>
   </p>
   </div>  -->
-  
+
 </div>
 <!-- <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">

@@ -1,13 +1,18 @@
-{% extends "prototype-layout.html" %}
+{% extends "layout.html" %}
 
 {% block pageTitle %}
-  GOV.UK Prototype Kit
+Pay for crossings
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
 {% endblock %}
 
 {% block content %}
 
 
-  
+
 <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-two-thirds error-summary" style="display: none; margin-bottom:-60px">
@@ -35,14 +40,14 @@
     <div class="govuk-grid-column-full">
         <div class="govuk-form-group ">
             <label class="govuk-body-l govuk-!-font-weight-bold " for="amount">Payment amount</label>
-            
+
             <div class="govuk-input__wrapper govuk-!-padding-top-1">
             <div class="govuk-input__prefix govuk-!-font-weight-bold" aria-hidden="true">£</div>
             <input class="govuk-input govuk-!-font-weight-bold govuk-input--width-3" id="amount" name="amount" value="5.00" type="number" aria-describedby="amount" spellcheck="false">
             </div>
-        
+
         </div>
-        
+
         <div class="govuk-form-group govuk-!-margin-bottom-2">
             <label class="govuk-label govuk-!-font-weight-bold " for="card-number">Card number</label>
             <span class="govuk-error-message card-number-error" style="display: none">
@@ -66,7 +71,7 @@
                 <label class="govuk-label" for="month">Month</label>
                 <input class="govuk-input govuk-input--width-2" id="month" name="month" type="text"
                     aria-required="true" aria-label="Enter the card holder name"  />
-            </div> 
+            </div>
             <div class="govuk-caption-xl govuk-!-font-weight-regular govuk-!-margin-top-5 govuk-!-margin-bottom-0 govuk-!-padding-2"> / </div>
             <div class="govuk-form-group govuk-!-margin-bottom-2">
                 <label class="govuk-label" for="year">Year</label>
@@ -74,7 +79,7 @@
                     aria-required="true" aria-label="Enter the card holder name"  />
             </div>
         </div>
-        
+
         <div class="govuk-form-group govuk-!-margin-top-6 govuk-!-margin-bottom-6">
             <label class="govuk-label govuk-!-font-weight-bold " for="name-on-card">Name on card</label>
             <span class="govuk-error-message card-name-error" style="display: none">
@@ -83,14 +88,14 @@
             <input class="govuk-input govuk-input--width-20" id="name-on-card" name="name-on-card" type="text"
                 aria-required="true" aria-label="Enter the card holder name" />
         </div>
-        
+
         <div class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">
             Card security code
         </div>
         <div class="govuk-caption-m govuk-!-margin-bottom-2">
             The last 3 digits on the back of the card
         </div>
-        
+
         <div style="display: flex;">
             <div class="govuk-form-group">
                 <input class="govuk-input govuk-input--width-3" id="cvv" name="cvv" type="text"
@@ -98,13 +103,13 @@
             </div>
             <div class="govuk-!-margin-left-3"><img src="/public/images/cvv.png"  width="64px" alt="cvv" /></div>
         </div>
-        
-        
+
+
         <!-- Terms and Condition Starts-->
         <div class="govuk-form-group govuk-!-margin-bottom-2" >
             <p class="govuk-body-l govuk-!-font-weight-bold govuk-!-margin-bottom-0" for="Terms and conditions">You must agree to the service terms and conditions
             </p>
-        
+
         </div>
         <div class="govuk-form-group govuk-!-margin-bottom-1">
             <div class="govuk-checkboxes">
