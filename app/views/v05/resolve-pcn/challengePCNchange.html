@@ -48,8 +48,10 @@ overflow:hidden;
     <script type="text/javascript">
     var chosen = JSON.parse(localStorage.getItem("chosenCar"));
       $(document).ready(function() {
-      
-      
+      let prevChallenge = JSON.parse(localStorage.getItem("challengeDetails"))
+      document.getElementById("fullName").value = prevChallenge[0]
+      document.getElementById("email").value = prevChallenge[1]
+      document.getElementById("phone").value = prevChallenge[2]
       var chosenFull = JSON.parse(localStorage.getItem("chosenCarfull"));
       $("#reg").html(chosen[0]) ; 
       $("#cla").html(chosen[1]);  
@@ -74,7 +76,12 @@ overflow:hidden;
   
       })
     </script>
- 
+   <script type="text/javascript">
+    let postcodes = [{"postcode":"CM1 7BD", "addresses":["Broomfield Hall, Church Green, Broomfield, CHELMSFORD, CM1 7BD", "Woollards, Church Green, Broomfield, CHELMSFORD, CM1 7BD", "2 Church Green, Broomfield, CHELMSFORD, CM1 7BD", "BROOMFIELD HOUSE MANAGEMENT COMPANY LIMITED, 25 CHURCH GREEN" , "MARINA ONE SECURITY SERVICES LTD, 41 CHURCH GREEN, BROOMFIELD"
+] }, {"postcode":"NW10 5AD", "addresses": ["1 Buchanan Gardens, LONDON", "3b Buchanan Gardens", "Flat B, 5 Buchanan Gardens, LONDON,", "SAMIR HUSSEIN PHOTOGRAPHY LTD, 33 BUCHANAN GARDENS, LONDON", "RUSKONE VINTAGE DESIGN LIMITED, 47A BUCHANAN GARDENS, WILLESDEN, LONDON,"]}]
+
+   localStorage.setItem("postcodes", JSON.stringify(postcodes));
+  </script>
   </head>
   <body class="govuk-template__body "><script id="__bs_script__">//<![CDATA[
     document.write("<script async src='/browser-sync/browser-sync-client.js?v=2.27.4'><\/script>".replace("HOST", location.hostname));
@@ -158,8 +165,8 @@ overflow:hidden;
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      <h1 class="govuk-caption-l govuk-!-margin-bottom-1 govuk-!-margin-top-0">Pay or challenge a penalty charge notice (PCN)</h1>
-      <h2 class="govuk-heading-xl govuk-!-margin-bottom-5">Outstanding <span aria-hidden="true" title="Penalty charge notice">PCN</span><span class="sr-only" >Penalty charge notice</span>s</h2>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">Resolve a Penalty Charge Notice (PCN)</h1>
+      <h2 class="govuk-heading-l">Challenge <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span></h2>
     </div>
   </div>
 
@@ -168,10 +175,8 @@ overflow:hidden;
         <div class="govuk-grid-column-three-quarters">
             
           
-          <!-- <p class="govuk-body">Check your <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span> details below.</p> -->
-          <p>Here are all the PCNs connected to this vehicle. Deselect any you do not wish to pay for. The total amount to pay will be calculated based on the selected PCNs.
-            <br>The amount shown includes the PCN charge and the original crossing charge.</p>
-          <p class="govuk-body"><b>Number plate:</b> <span id="reg">LO69 NRO</span>     <a class="govuk-link" href="flow1">Change</a> </p>
+          <p class="govuk-body">Please select the <span title="Penalty charge notices">PCNs<span> you wish to challenge below and fill out the details.</p>
+          <!-- <p class="govuk-body"><b>Registration number:</b> <span id="reg">LO69 NRO</span>     <a class="govuk-link" href="flow1">Change</a> </p> -->
           <div style="overflow-x:auto;">
           <table class="govuk-table">
             <thead class="govuk-table__head">
@@ -187,63 +192,104 @@ overflow:hidden;
               </tr>
             </thead>
             <tbody id="tbody" class="govuk-table__body">
-              <!-- <tr  class="govuk-table__row">
-                <td class="govuk-table__cell govuk-table__cell" style="text-align: center;">14 days</td>
-                <td class="govuk-table__cell govuk-table__cell" >07:32 on 1 Aug 2019</td>
-                <td class="govuk-table__cell govuk-table__cell" >IB09383638</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric"  name="pay" style="text-align: center;">£70</td>
-                <td class="govuk-table__cell govuk-table__cell" ><a class="govuk-link" href="flow5a">Details</a></td>
-                <td class="govuk-table__cell govuk-table__cell" >
-                  <div class="govuk-checkboxes govuk-checkboxes--small govuk-checkboxes__item" data-module="govuk-checkboxes" style="margin-left:20%; padding-top: 10%;">
-                    <input class="govuk-checkboxes__input"  name="organisation" type="checkbox" value=""  onchange="checkCharge()" checked>
-                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
-                    </label>
-                    </div>
-                </td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell govuk-table__cell" style="text-align: center;">3 days</td>
-                <td class="govuk-table__cell govuk-table__cell" >07:56 on 2 Aug 2019</td>
-                <td class="govuk-table__cell govuk-table__cell" >IB09383639</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric" name="pay" style="text-align: center;">£35</td>
-                <td class="govuk-table__cell govuk-table__cell" ><a class="govuk-link" href="flow5b">Details</a></td>
-                <td class="govuk-table__cell govuk-table__cell" >
-                  <div class="govuk-checkboxes govuk-checkboxes--small govuk-checkboxes__item" data-module="govuk-checkboxes" style="margin-left:20%;">
-                    <input class="govuk-checkboxes__input"  name="organisation" type="checkbox" value="" onchange="checkCharge()" checked>
-                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
-                    </label>
-                    </div>
-                </td>
-              </tr> -->
-              <!-- highlight, then ctrl/ to uncomment the extra row for testing below -->
 
-              <!-- <tr class="govuk-table__row">
-                <td class="govuk-table__cell govuk-table__cell" style="text-align: center;">3 days</td>
-                <td class="govuk-table__cell govuk-table__cell" >07:32 on 3 Aug 2019</td>
-                <td class="govuk-table__cell govuk-table__cell" >IB09383640</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric" name="pay" style="text-align: center;">£45</td>
-                <td class="govuk-table__cell govuk-table__cell" ><a class="govuk-link" href="flow5b">Details</a></td>
-                <td class="govuk-table__cell govuk-table__cell" >
-                  <div class="govuk-checkboxes govuk-checkboxes--small govuk-checkboxes__item" data-module="govuk-checkboxes" style="margin-left:20%;">
-                    <input class="govuk-checkboxes__input"  name="organisation" type="checkbox" value="" onchange="checkCharge()" checked>
-                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
-                    </label>
-                    </div>
-                </td>
-              </tr> -->
             </tbody>
           </table> 
         </div> 
-          <!-- <a href="flow2Alt"><button class="govuk-button govuk-button--secondary govuk-!-margin-top-2 govuk-!-margin-bottom-2" data-module="govuk-button" style="float: right;">
+          <a href="flow2Alt"><button class="govuk-button govuk-button--secondary govuk-!-margin-top-2 govuk-!-margin-bottom-2" data-module="govuk-button" style="float: right;">
             Add another <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span>
-         </button></a>  -->
-         <br><br>
-          
-            <!-- <ul class="govuk-list govuk-list--bullet">
-              <li>the <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span>  charge</li>
-              <li>the original crossing charge.</li>
-            </ul><br> -->
-            
+         </button></a> <br><br><br><br>
+
+         <div>       
+
+          <fieldset class="govuk-fieldset">
+           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+             <h1 class="govuk-fieldset__heading">
+               Personal details
+             </h1>
+           </legend>
+           <div class="govuk-form-group">
+              <label class="govuk-label"  for="event-name">
+                  Full name 
+                </label>
+              <input class="govuk-input govuk-!-width-full" id="fullName" name="event-name" type="text">
+            </div>
+           <div class="govuk-form-group">
+              <label class="govuk-label"  for="event-name">
+                  Email address 
+                </label>
+                <div id="event-name-hint" class="govuk-hint">
+                  We will use this to send you confirmation of your challenge.
+                </div>
+              
+   
+              <input class="govuk-input govuk-!-width-two-thirds" id="email" name="event-name" type="text">
+            </div>
+           <div class="govuk-form-group">
+              <label class="govuk-label"  for="event-name">
+                  Phone number 
+                </label>
+              
+              <div id="event-name-hint" class="govuk-hint">
+                Only enter a UK number
+              </div>
+              <input class="govuk-input govuk-!-width-one-half" id="phone" name="event-name" type="text" maxlength="11" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+            </div>
+            <h3 class="govuk-heading-s">
+              What is your home address?
+            </h3>
+            <div id="challengeHint" class="govuk-hint">
+              We will send your challenge confirmation to this address.
+            </div>
+            <label class="govuk-label govuk-heading-s" for="address-postcode"><h3 class="govuk-heading-s">Postcode</h3>
+               
+            </label>
+            <div id="postEntry" class="govuk-form-group" style="display:block;">
+              
+ 
+              <input class="govuk-input govuk-!-width-one-quarter" id="address-postcode" name="address-postcode" type="text" autocomplete="postal-code"><br><br>
+ <button id="findAddy" class="govuk-button govuk-!-width-one-quarter govuk-!-margin-bottom-0" data-module="govuk-button">
+               Find address
+             </button>
+            </div>
+             
+ <div id="addySelect"class="govuk-form-group govuk-!-margin-bottom-0" style="display:none;">
+   <!-- <label class="govuk-label " for="sort"><h3 class="govuk-heading-s">Postcode</h3>    
+   </label> -->
+   <h3 id="showCode"class="govuk-heading-s"></h3>
+   <select class="govuk-select" id="sort" name="sort">
+   <option id="addyCount" selected disabled></option>  
+   </select><br><br>
+ 
+   <p class="govuk-body"><a id = "noAddy" href="javascript:void(0)">I can't find my address in the list</a></p>
+   <button id="foundAddy " onclick="window.location.href='flow10'"  class="govuk-button govuk-!-width-one-quarter" data-module="govuk-button">
+               Continue
+             </button>
+ </div>
+
+           <!-- <div class="govuk-form-group">
+             <label class="govuk-label" for="address-postcode">
+               Postcode
+             </label>
+             <input class="govuk-input govuk-!-width-one-quarter" id="address-postcode" name="address-postcode" type="text" autocomplete="postal-code"></div>
+             <button id="findAddy" class="govuk-button govuk-!-width-one-quarter" data-module="govuk-button">
+              Find address
+            </button> -->
+         </fieldset>
+          <a id = "softNext" href="flow13"><button class="govuk-button govuk-!-width-one-quarter" data-module="govuk-button">
+          Next
+        </button> </a>     
+
+
+
+  <br>
+  <br><br><br><br>
+  </div> 
+  
+  <!-- <div>
+         <p>There <span id="grammar1">are</span>  <span id=pcns>2</span> Penalty Charge Notice<span id="grammar2">s</span> (PCN) connected to this vehicle. The total amount
+          you pay will be automatically calculated based on the number of <span title="Penalty charge notices">PCNs</span> selected. If you have multiple <span title="Penalty charge notices">PCNs<span> please select the ones you wish to pay for and the correct amount will be shown below.</p>
+            <p>The amount shown includes the <span title="Penalty charge notice">PCN</span>  charge <b>and</b> the original crossing charge.</p>
           <div class="govuk-form-group">
             <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="cost">
                 Payment amount
@@ -254,54 +300,29 @@ overflow:hidden;
               <input class="govuk-input govuk-input--width-5" id="amt_owed" name="amt_owed" type="text" spellcheck="false" value="105" style="font-weight:bold ;">
             </div>
           </div>
-          <a id="confirmPayBTN" href="flow6details"><button id="btnConfam" class="govuk-button" data-module="govuk-button">
+          <a id="confirmPayBTN" href="flow6details"><button class="govuk-button" data-module="govuk-button">
             Proceed to payment
-          </button></a><br><br>
-          <h1 class="govuk-heading-l">Challenge the <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span></h1>
+          </button></a>
+          <h1 class="govuk-heading-m">Challenge the <span title="Penalty charge notice">PCN<span></h1>
 
-          <p>If you feel your <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span> has been issued unfairly, you can make a challenge.</p>
-          <!-- <p><a class="govuk-link" href="#">See on which grounds you can make a representation</a></p> -->
-          <p class="govuk-body">There are 2 ways to challenge your <span title="Penalty charge notices">PCN<span></p>
-            <ul>
-              <li class="govuk-body govuk-!-margin-bottom-2">continue to use this online service</li>
-              <li class="govuk-body">complete and return the postal form attached to your <span title="Penalty charge notices">PCN<span> letter</span> </li>
-            </ul>
-          <p class="govuk-body">Late payment charges will be paused while your challenge is considered. The amount you owe will not increase during this time.
-          </p>   
-               <h1 class="govuk-heading-m">
-                 Challenge your <span title="Penalty charge notices">PCN</span> online.
-               </h1>
-               <p class="govuk-body">You will be asked to select the reason for your challenge and provide any relevant information and evidence.</p>
-               <button id="challengeForm" onclick="window.location.href='flow9'" class="govuk-button govuk-button--secondary govuk-!-width-one-quarter govuk-!-margin-bottom-0" data-module="govuk-button">
-                Next
-              </button>
-               
-               <h1 class="govuk-heading-m govuk-!-margin-top-9">
-                Challenge your <span title="Penalty charge notices">PCN<span> by post.
-              </h1>
-              <p class="govuk-body">To challenge your <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span> by post, send your postal form to the address below.</p>
-              <p>If you cannot find your postal <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span> form <a href="#">contact Dart Charge.</a></p>
-              <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Dart Charge Enforcement</h3>
-              <p class="govuk-body">PO BOX 842 <br>
-                Leeds <br>
-                LS1 9QF</p>
-              <!-- <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Business customer's DX address</h3>
-              <p class="govuk-body">Land registry <br>
-                  DX 321601 <br>
-                  Gloucester 33</p> -->
-          <!-- <a class="govuk-link" href="flow8b"><button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-            Challenge <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span>
-          </button></a> -->
+          <p>If you feel your <span title="Penalty charge notice">PCN<span> has been issued unfairly, you can challenge it by
+            making an appeal online.</p>
+          <p><a class="govuk-link" href="#">See on which grounds you can make a representation</a></p>
+          <a class="govuk-link" href="flow9"><button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Challenge <span title="Penalty charge notice">PCN<span>
+          </button></a>
           
           
          
 
 
-                  <!-- <p><b>If we accept your representation,</b> we will send you written confirmation that you are no -->
-                    <!-- longer liable for the <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span>.</p> -->
-                  <!-- <p><b>If we reject your representation,</b>  we will send you a notice of rejection which will tell you -->
-                    <!-- what you should do next.</p> -->
-        </div>  
+                  <p><b>If we accept your representation,</b> we will send you written confirmation that you are no
+                    longer liable for the <span title="Penalty charge notice">PCN<span>.</p>
+                  <p><b>If we reject your representation,</b>  we will send you a notice of rejection which will tell you
+                    what you should do next.</p>
+        </div> 
+        
+      </div> -->
                     <!-- javascript to access list of checkboxes in the DOM:
                     const checks = document.querySelectorAll('tr > td:nth-child(6) > div') -->
                     <!-- Javascript to access list of payment values in the DOM:
@@ -348,44 +369,127 @@ overflow:hidden;
                                 </td>
                               </tr>`;
                     document.getElementById("tbody").innerHTML += fieldHTML;
-                    }
-                    // localStorage.setItem("penaltyDetails",JSON.stringify(penaltyDetails));
-                    let pcnDetailslinks = document.getElementsByName("details");
-                    let pcnDetailsTable = [];
-                    for (let g=0; g<pcnDetailslinks.length; g++){
-                      // pcnDetailslinks[g].addEventListener("mouseover", function(){
-                      pcnDetailslinks[g].addEventListener("click", function(){
-                        pcnDetailsTable = (chosen.concat(Object.values(penaltyDetails[g]))) 
-                        localStorage.setItem("pcnDetailsTable",JSON.stringify(pcnDetailsTable));
-                         });
-                          
-                    };
-                    let confirmPayBTN = document.getElementById("confirmPayBTN");
-                    
-                    let checkslist = document.getElementsByName('organisation')
+                    let noAddy = document.getElementById("noAddy")
+                    let foundAddy = document.getElementById("addySelect")
+                    let addyBtn = document.getElementById("findAddy");
 
-                    confirmPayBTN.addEventListener("click", function(){
-                      //event.preventDefault();
+                    
+                    let postEntry = document.getElementById("postEntry")
+                    let chosenAddy = []
+                    
+                    let container = document.getElementById('sort')
+
+                    // window.addEventListener('load', (event) => {
+
+                      // function checkAddy(){
+                      addyBtn.addEventListener("click", function (event){ 
+                      for (let i=0; i<postcodes.length; i++){
+                        
+                        if (document.getElementById("address-postcode").value.toUpperCase().replace(/\s/g, "")==
+                          postcodes[i].postcode.toUpperCase().replace(/\s/g, "")){
+                          chosenAddy = postcodes[i].addresses;
+                          localStorage.setItem("chosenAddy", JSON.stringify(chosenAddy));
+                          document.getElementById("addyCount").innerHTML=`${chosenAddy.length} address(es) found`
+                          document.getElementById("challengeHint").style.display="none"
+                          document.getElementById("showCode").innerHTML=postcodes[i].postcode
+                        for (let k=0; k<chosenAddy.length; k++){
+                            let fieldHTML = `<option value="${chosenAddy[k]}">${chosenAddy[k]}</option>`;
+                            container.innerHTML+=fieldHTML;
+                            foundAddy.style.display="block";
+                            postEntry.style.display="none";
+                            
+                          } 
+
+                        };
+
+                          
+
+                      }
+                    })
+                      // });
+                        noAddy.addEventListener("click", function (){        
+                        // chosenAddy = []
+                        //  window.location.reload()
+                        foundAddy.style.display="none";
+                            postEntry.style.display="block";
+                            document.getElementById("challengeHint").style.display="block"     
+                          })
+                    
+                    // }
+                    // checkAddy()
+                    
+                    foundAddy.addEventListener("click", function() {
+                      let fullName =document.getElementById("fullName").value 
+                      let email = document.getElementById("email").value
+                      let phone = document.getElementById("phone").value
+                      let showCode = document.getElementById("showCode").innerHTML
+                      let sort =document.getElementById("sort")
+                      let homeAddy = sort.options[sort.selectedIndex].value
+                      let challengeDetails = [fullName, email, phone, showCode, homeAddy]
+                      localStorage.setItem("challengeDetails", JSON.stringify(challengeDetails))
+                      let checkslist = document.getElementsByName('organisation')
+                      let challengedPCNs = []
                       for (let k=0; k<checkslist.length; k++){
                         if (checkslist[k].checked){
-                          pcnDetailsTable.push((chosen.concat(Object.values(penaltyDetails[k]))))
-                        }
+                        challengedPCNs.push(penaltyDetails[k].pcn)
+                        
                       }
-                      if(pcnDetailsTable.length>1){
-                        pcnDetailsTable=pcnDetailsTable
-                      }else if(pcnDetailsTable.length=1){pcnDetailsTable=pcnDetailsTable.flat(1)}
-                      localStorage.setItem("pcnDetailsTable",JSON.stringify(pcnDetailsTable));
+                      
+                    }
+                    localStorage.setItem("challengedPCNs", JSON.stringify(challengedPCNs))
                     })
+
+                    softNext.addEventListener("mouseover", function() {
+                      // let fullName =document.getElementById("fullName").value 
+                      // let email = document.getElementById("email").value
+                      // let phone = document.getElementById("phone").value
+                      // let showCode = document.getElementById("showCode").innerHTML
+                      // let sort =document.getElementById("sort")
+                      // let homeAddy = sort.options[sort.selectedIndex].value
+                      // let challengeDetails = [fullName, email, phone, showCode, homeAddy]
+                      // localStorage.setItem("challengeDetails", JSON.stringify(challengeDetails))
+                      let checkslist = document.getElementsByName('organisation')
+                      let challengedPCNs = []
+                      for (let k=0; k<checkslist.length; k++){
+                        if (checkslist[k].checked){
+                        challengedPCNs.push(penaltyDetails[k].pcn)
+                        
+                      }
+                      
+                    }
+                    localStorage.setItem("challengedPCNs", JSON.stringify(challengedPCNs))
+                    })
+                                      }
+                    // localStorage.setItem("penaltyDetails",JSON.stringify(penaltyDetails));
+                    // let pcnDetailslinks = document.getElementsByName("details");
+                    // let pcnDetailsTable = [];
+                    // for (let g=0; g<pcnDetailslinks.length; g++){
+                    //   // pcnDetailslinks[g].addEventListener("mouseover", function(){
+                    //   pcnDetailslinks[g].addEventListener("click", function(){
+                    //     pcnDetailsTable = (chosen.concat(Object.values(penaltyDetails[g]))) 
+                    //     localStorage.setItem("pcnDetailsTable",JSON.stringify(pcnDetailsTable));
+                    //      });
+                          
+                    // };
+                    // let confirmPayBTN = document.getElementById("confirmPayBTN");
+                    
+                    // let checkslist = document.getElementsByName('organisation')
+
+                    // confirmPayBTN.addEventListener("click", function(){
+                    //   for (let k=0; k<checkslist.length; k++){
+                    //     if (checkslist[k].checked){
+                    //       pcnDetailsTable.push((chosen.concat(Object.values(penaltyDetails[k]))))
+                    //     }
+                    //   }
+                    //   if(pcnDetailsTable.length>1){
+                    //     pcnDetailsTable=pcnDetailsTable
+                    //   }else if(pcnDetailsTable.length=1){pcnDetailsTable=pcnDetailsTable.flat(1)}
+                    //   localStorage.setItem("pcnDetailsTable",JSON.stringify(pcnDetailsTable));
+                    // })
                     
                     
                       })
-
-                      //prevent safari browser from loading from cache when back button is pressed
-                      window.onpageshow = function(event) {
-                      if (event.persisted) {
-                      window.location.reload() 
-                        }
-                      };
+                    
                     </script>
                      <script type="text/javascript">
                      $(document).ready(function(){
@@ -394,7 +498,7 @@ overflow:hidden;
                      let payFields = document.getElementsByName('pay')
                     //  const pcnCount = document.getElementById('pcnCount')
 
-                    sumBox.disabled=true
+                    
 
                       function setIt(){
                           for(i=0; i<payFields.length; i++) { 
@@ -449,34 +553,21 @@ overflow:hidden;
 
                           $(".govuk-checkboxes__input").click(function(event) {
                             getTotal();
-                            if (document.getElementById("amt_owed").value=="0"){
-                          document.getElementById("btnConfam").setAttribute("disabled", "disabled")
-                          document.getElementById("btnConfam").setAttribute("aria-disabled", "true")
-                          document.getElementById("btnConfam").classList.add("govuk-button--disabled")
-                          document.getElementById("challengeForm").setAttribute("disabled", "disabled")
-                          document.getElementById("challengeForm").setAttribute("aria-disabled", "true")
-                          document.getElementById("challengeForm").classList.add("govuk-button--disabled")
-                          // document.getElementById("confirmPayBTN").classList.add("govuk-!-display-none")  
-                        }
-                        if (document.getElementById("amt_owed").value!="0"){
-                          document.getElementById("btnConfam").removeAttribute("disabled", "disabled")
-                          document.getElementById("btnConfam").removeAttribute("aria-disabled", "true")
-                          document.getElementById("btnConfam").classList.remove("govuk-button--disabled")
-                          document.getElementById("challengeForm").removeAttribute("disabled", "disabled")
-                          document.getElementById("challengeForm").removeAttribute("aria-disabled", "true")
-                          document.getElementById("challengeForm").classList.remove("govuk-button--disabled")
-                          document.getElementById("confirmPayBTN").classList.remove("govuk-!-display-none")  
-                        }
-                        
                           });
                           getTotal(true);
 
                           });
 
                         })
-                        
                       </script>
+<script>
+  
+    
 
+
+   
+  
+ </script>
 
                       
                       <!-- <form name="listForm">
