@@ -1,37 +1,41 @@
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 
+{% block pageTitle %}
+Create your account
+{% endblock %}
+
 
 <!DOCTYPE html>
-<html lang="en" class="govuk-template ">
+<!--<html lang="en" class="govuk-template ">
   <head>
     <meta charset="utf-8">
     <title>
 GOV.UK Prototype Kit
 
-</title>
+</title>-->
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="theme-color" content="#0b0c0c"> 
-    
+    <meta name="theme-color" content="#0b0c0c">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    
+
       <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/govuk/assets/images/favicon.ico" type="image/x-icon">
-      <link rel="mask-icon" href="/govuk/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="mask-icon" href="/govuk/assets/images/govuk-mask-icon.svg" color="#0b0c0c">
       <link rel="apple-touch-icon" sizes="180x180" href="/govuk/assets/images/govuk-apple-touch-icon-180x180.png">
       <link rel="apple-touch-icon" sizes="167x167" href="/govuk/assets/images/govuk-apple-touch-icon-167x167.png">
       <link rel="apple-touch-icon" sizes="152x152" href="/govuk/assets/images/govuk-apple-touch-icon-152x152.png">
       <link rel="apple-touch-icon" href="/govuk/assets/images/govuk-apple-touch-icon.png">
-    
 
-    
+
+
   <!--[if lte IE 8]><link href="/public/stylesheets/application-ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
 <!--[if gt IE 8]><!--><link href="/public/stylesheets/application.css" media="all" rel="stylesheet" type="text/css" /><!--<![endif]-->
 
 
 
 
-    
-    
+
+
     <meta property="og:image" content="/govuk/assets/images/govuk-opengraph-image.png">
   </head>
   <body class="govuk-template__body "><script id="__bs_script__">//<![CDATA[
@@ -39,15 +43,15 @@ GOV.UK Prototype Kit
 //]]></script>
 
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
-    
 
-    
+
+
       <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
 
-    
 
-    
-  
+
+
+
   <header class="govuk-header " role="banner" data-module="govuk-header">
   <div class="govuk-header__container govuk-width-container">
     <div class="govuk-header__logo">
@@ -76,24 +80,24 @@ GOV.UK Prototype Kit
             GOV.UK
           </span>
         </span>
-        
+
       </a>
     </div>
-    
+
     <div class="govuk-header__content">
-    
+
     <a href="/" class="govuk-header__link govuk-header__link--service-name">
       Dartford Crossing Charge
     </a>
-    
-    
+
+
     </div>
-    
+
   </div>
 </header>
 
 
-    
+
       <div class="govuk-width-container ">
         <div class="govuk-width-container app-width-container"><div class="govuk-phase-banner">
           <p class="govuk-phase-banner__content">
@@ -104,28 +108,28 @@ GOV.UK Prototype Kit
               This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
             </span>
           </p>
-        </div>     
+        </div>
         <a href="flow3" class="govuk-back-link">Back</a></div>
-        
-       
-          
+
+
+
 
 
 
 <div class="govuk-width-container">
 
-  
 
-  
+
+
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
           <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Pay a Penalty Charge Notice (PCN)</h1>
           <h2 class="govuk-heading-l govuk-!-margin-top-2">Payment details</h2>
         </div>
-        
+
         <div class="govuk-grid-column-three-quarters">
-            
-          
+
+
           <!-- <p class="govuk-body">This page gives a view of the PCNs you have provided</p>
           <p class="govuk-body"><b>Registration number:</b> LO69 NRO    <a class="govuk-link" href="flow1">Change</a> </p> -->
 
@@ -134,7 +138,7 @@ GOV.UK Prototype Kit
               <tr class="govuk-table__row">
                 <!-- <th scope="col" class="govuk-table__header  govuk-!-width-one-quarter" style="text-align: center;">Time left till
                   escalation</th> -->
-                
+
                 <th scope="col" class="govuk-table__header govuk-table__header" >PCN number</th>
                 <th scope="col" class="govuk-table__header govuk-table__header" >Amount owed</th>
                 <th scope="col" class="govuk-table__header govuk-!-width-one-third" >Time and date of
@@ -147,7 +151,7 @@ GOV.UK Prototype Kit
             <tbody class="govuk-table__body">
               <tr  class="govuk-table__row">
                 <!-- <td class="govuk-table__cell govuk-table__cell" >14 days</td> -->
-                
+
                 <td class="govuk-table__cell govuk-table__cell" >IB09383638</td>
                 <td class="govuk-table__cell govuk-table__cell"  name="pay" style=>£70</td>
                 <td class="govuk-table__cell govuk-table__cell" >07:32 on 1 Aug 2019</td>
@@ -162,7 +166,7 @@ GOV.UK Prototype Kit
               </tr>
               <tr class="govuk-table__row">
                 <!-- <td class="govuk-table__cell govuk-table__cell" >3 days</td> -->
-                
+
                 <td class="govuk-table__cell govuk-table__cell" >IB09383639</td>
                 <td class="govuk-table__cell govuk-table__cell" name="pay" >£35</td>
                 <td class="govuk-table__cell govuk-table__cell" >07:56 on 2 Aug 2019</td>
@@ -192,7 +196,7 @@ GOV.UK Prototype Kit
                 </td>
               </tr> -->
             </tbody>
-          </table>  
+          </table>
           <!-- <a href="flow2"><button class="govuk-button govuk-button--secondary" data-module="govuk-button" style="float: right;">
             Add another PCN
          </button></a> <br><br><br><br> -->
@@ -200,14 +204,14 @@ GOV.UK Prototype Kit
           <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Payment amount</h3>
           <h1 class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">£105</h1>
         </div>
-        
+
         <div class="govuk-form-group govuk-!-margin-bottom-3">
           <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="event-name">
             Enter card details
             </label>
           </h3>
           <input class="govuk-input govuk-!-width-one-half" id="event-name" name="event-name" type="text">
-          
+
         </div>
           <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -718,13 +722,13 @@ GOV.UK Prototype Kit
           <label class="govuk-label" for="width-4">
             Year
           </label>
-          <input class="govuk-input govuk-input--width-4" id="width-4" name="width-4" type="text"></div>  
+          <input class="govuk-input govuk-input--width-4" id="width-4" name="width-4" type="text"></div>
           <div class="govuk-form-group govuk-!-margin-top-0">
             <label class="govuk-label" for="width-2">
               Name on card
-              
+
             </label>
-            <input class="govuk-input govuk-!-width-one-half"  type="text"></div> 
+            <input class="govuk-input govuk-!-width-one-half"  type="text"></div>
           <div class="govuk-form-group govuk-!-margin-top-0 govuk-!-margin-right-2" style="display:inline-block;">
             <label class="govuk-label" for="width-5">
                 Card security code
@@ -954,7 +958,7 @@ GOV.UK Prototype Kit
                  </g>
                </g>
              </svg>
-             </div>  
+             </div>
              <div class="govuk-form-group">
               <label class="govuk-label" for="width-10">
                 Postcode
@@ -962,9 +966,9 @@ GOV.UK Prototype Kit
               <input class="govuk-input govuk-input--width-10" id="width-10" name="width-10" type="text"></div>
               <div class="govuk-form-group">
                 <label class="govuk-label"  for="event-name">
-                    Email address 
+                    Email address
                   </label>
-                
+
                 <div id="event-name-hint" class="govuk-hint">
                   We'll only use this to send you a receipt
                 </div>
@@ -972,13 +976,13 @@ GOV.UK Prototype Kit
               </div>
               <button class="govuk-button" data-module="govuk-button">
                 Confirm and pay
-              </button>      
+              </button>
 
 
-     
+
         <br>
         <br><br><br><br>
-        
+
 
          <!-- <p>There are <span id=pcnCount>2</span>  Penalty Charge Notices (PCN) connected to this vehicle. The total amount
           you owe has been autocalculated for you. If you’d like to pay a different amount or for a
@@ -1006,16 +1010,16 @@ GOV.UK Prototype Kit
           <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
             Challenge PCN
           </button>
-          
-          
-         
+
+
+
 
 
                   <p><b>If we accept your representation,</b> we will send you written confirmation that you are no
                     longer liable for the PCN.</p>
                   <p><b>If we reject your representation,</b>  we will send you a notice of rejection which will tell you
                     what you should do next.</p> -->
-        </div>  
+        </div>
                     <!-- javascript to access list of checkboxes in the DOM:
                     const checks = document.querySelectorAll('tr > td:nth-child(6) > div') -->
                     <!-- Javascript to access list of payment values in the DOM:
@@ -1027,18 +1031,18 @@ GOV.UK Prototype Kit
                       <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
                       </label> -->
                       </div>
-                     
+
                      <!-- test script for adding checkbox values -->
                      <script src="/public/javascripts/jquery-1.11.3.js"></script>
                      <!-- <script type="text/javascript">
-                     
+
                      const checks = document.getElementsByName('organisation')
                      const sumBox = document.querySelector('#amt_owed')
                      const payFields = document.getElementsByName('pay')
                      const pcnCount = document.getElementById('pcnCount')
 
                       function setIt(){
-                          for(i=0; i<payFields.length; i++) { 
+                          for(i=0; i<payFields.length; i++) {
                               checks[i].value = payFields[i].innerText.split('£')[1]
                           }
                       }
@@ -1048,7 +1052,7 @@ GOV.UK Prototype Kit
                       }
                       setPcnCount();
                     //     function checkTotal() {
-                          
+
                     //       document.listForm.total.value = '35';
                     //       var sum = 0;
                     //       for (i=0;i<document.listForm.choice.length;i++) {
@@ -1059,7 +1063,7 @@ GOV.UK Prototype Kit
                     //       document.listForm.total.value = sum;
                     //     }
                     // //     function checkCharge() {
-                          
+
                     //       sumBox.value = '105';
                     //       var sum = 0;
                     //       for (i=0;i<checks.length;i++) {
@@ -1096,7 +1100,7 @@ GOV.UK Prototype Kit
                           });
 
                       </script> -->
-                      
+
                       <!-- <form name="listForm">
                       <input type="checkbox" name="choice" value="2" onchange="checkTotal()"/>2<br/>
                       <input type="checkbox" name="choice" value="5" onchange="checkTotal()"/>5<br/>
@@ -1104,48 +1108,48 @@ GOV.UK Prototype Kit
                       <input type="checkbox" name="choice" value="20" onchange="checkTotal()"/>20<br/>
                       Total: <input type="text" size="2" name="total" value="0"/>
                       </form> -->
-                      
+
         <div class="govuk-grid-column-one-third">
-          
+
         </div>
- 
+
       </div>
-  
+
     </main>
   </div>
 
 
         </main>
       </div>
-    
 
-    
+
+
     <footer class="govuk-footer " role="contentinfo">
   <div class="govuk-width-container ">
-    
+
     <div class="govuk-footer__meta">
       <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
-        
+
           <h2 class="govuk-visually-hidden">Support links</h2>
-          
+
             <ul class="govuk-footer__inline-list">
-              
+
                 <li class="govuk-footer__inline-list-item">
                   <a class="govuk-footer__link" href="https://govuk-prototype-kit.herokuapp.com/">
                     GOV.UK Prototype Kit v9.14.1
                   </a>
                 </li>
-              
+
                 <li class="govuk-footer__inline-list-item">
                   <a class="govuk-footer__link" href="/prototype-admin/clear-data">
                     Clear data
                   </a>
                 </li>
-              
+
             </ul>
-          
-          
-        
+
+
+
         <svg
           aria-hidden="true"
           focusable="false"
@@ -1179,10 +1183,10 @@ GOV.UK Prototype Kit
   </div>
 </footer>
 
-  
 
-    
-  
+
+
+
     <!-- Javascript -->
 <script src="/public/javascripts/jquery-1.11.3.js"></script>
 
@@ -1196,8 +1200,8 @@ GOV.UK Prototype Kit
   <script src="/public/javascripts/auto-store-data.js"></script>
 
 
-    
-  
+
+
   <!-- GOV.UK Prototype Kit v9.14.1 -->
 
   </body>
