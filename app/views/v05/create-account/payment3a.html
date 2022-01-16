@@ -13,8 +13,8 @@ Step 4 - Pre-pay for crossings
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="account-confirmation" method="post">
-        <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Step 4 - your payment</h1>
+      <form action="check-answers" method="post">
+        <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Your payment</h1>
           <fieldset class="govuk-fieldset">
             <h1 class="govuk-heading-l">How do you want to add funds?</h1>
             <fieldset class="govuk-fieldset">
@@ -23,12 +23,11 @@ Step 4 - Pre-pay for crossings
                 </label>
 
   <p aria-label="Minimal Payment" class="govuk-body">
-    You need to make an initial minimum deposit amount of £10 to open your account.
+    You need to make an initial minimum deposit amount of £10 to open your account. If you want to pay by direct debit you will have to make a bank transfer for the initial amount.
   </p>
   </div>
 
-
-<div class="govuk-form-group ">
+<div class="govuk-form-group">
 <label class="govuk-label govuk-!-font-size-24 govuk-!-font-weight-bold " for="amount">Payment amount</label>
 
 <div class="govuk-input__wrapper govuk-grid-column-two-third">
@@ -38,7 +37,7 @@ Step 4 - Pre-pay for crossings
 
 <div class="govuk-!-margin-top-8">
 
-                {% include "includes/payment-info.html" %}
+                {% include "includes/payment-info-new.html" %}
 
               <!--    <button class="govuk-button" data-module="govuk-button">Continue</button>
 -->

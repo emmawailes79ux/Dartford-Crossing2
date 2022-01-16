@@ -107,9 +107,9 @@ router.post('/CheckPaymentOption', function (req, res) {
 router.post('/CheckPaymentmethod', function (req, res) {
   var topupoption = req.session.data['topup']
   if (topupoption == "auto"){
-    res.redirect('v05/create-account/check-answers-auto')
+    res.redirect('v05/create-account/payment3a')
   } else  if (topupoption == "manual"){
-    res.redirect('v05/create-account/check-answers-manual')
+    res.redirect('v05/create-account/payment3a')
   }
 });
 
