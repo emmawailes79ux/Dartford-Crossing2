@@ -308,7 +308,7 @@ router.post('/CheckPaymentmethod', function (req, res) {
 /////////////////////////one off payment flow////////////////////////
 // one off payment
 router.post("/v04/one-off-payment/pay-crossing", function (req, res) {
-  
+
   res.redirect("/v04/one-off-payment/vehicle-info");
 
 });
@@ -398,4 +398,3 @@ router.get("/information/charges-fines", function (req, res) {
 
 
 module.exports = router
-
