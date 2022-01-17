@@ -14,12 +14,16 @@ $(document).ready(function () {
     $.fn.goBack();
   });
 })
+let kros = $("[id='kros']")
+let krosCount = $("[id='krosCount']")
 $("[id='vrn']").click(() => {
   $("[id='vrn']").val("LO62 NRO");
+  kros.val("3 (2 Southbound, 1 Northbound)");
+  krosCount.val(parseInt(kros.val().split(" ")[0]))
+  $("[id='krosCountPay']").val("£"+(krosCount.val()*2.50).toFixed(2));
 });
 $("[id='plateSubmit']").mouseover(() => {
-  let kros = $("[id='kros']")
-  let krosCount = $("[id='krosCount']")
+
   if ($("[id='vrn']").val()===""){
   $("[id='vrn']").val("LO62 NRO");
   kros.val("3 (2 Southbound, 1 Northbound)");
