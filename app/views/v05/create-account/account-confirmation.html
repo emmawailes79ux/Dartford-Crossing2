@@ -26,6 +26,8 @@ Your account has been created
     Your payment reference<br><strong>AB887234</strong>
   </div>
 </div>
+
+
 <!--
       <div class="govuk-panel govuk-panel--confirmation">
         <h1 class="govuk-panel__title">Account successfully created</h1>
@@ -45,6 +47,22 @@ Your account has been created
       </p>
     <!--  <p> <p><a href="https://www.gov.uk/.html">Sign into your account</a></p>-->
 
+
+    <p>We've sent a confirmation email with your account details to alex.lee@gmail.com</p>
+    <p>You will receive the digital receipt for your payment separately</p>
+
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+              <div class="govuk-inset-text" id="notifOptInset">
+                {{data['notifOptMssg']|safe}}
+              </div>
+            <a class="govuk-link" href="#" aria-label="Print or download a PDF copy of your payment receipt">Print or
+                download your payment receipt</a><br><br>
+
+
+    <table class="govuk-table govuk-!-margin-bottom-2">
+        <tbody class="govuk-table__body">
   <div>
       <h2 class="govuk-heading-s"><a href="../manage-account/login">Sign into your account</a> to:</h2>
       <ul class="govuk-list govuk-list--bullet">
