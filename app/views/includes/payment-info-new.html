@@ -26,8 +26,6 @@
   <table>
     <tbody>
       <tr>
-        <img id=applePay class=" govuk-!-width-two-thirds govuk-!-display-none govuk-!-margin-bottom-3" src="\public\images\appleDefault.png" alt="apple Pay">
-        <hr id="appleSection"class="govuk-body-xl govuk-!-width-two-thirds govuk-!-display-none govuk-section-break govuk-section-break--xl govuk-section-break--visible hr-text" data-content="OR">
 
         <form  method="post">
         <!--cardno-->
@@ -72,7 +70,17 @@
             </span>
             <input class="govuk-input govuk-input--width-2 cardFields" id="year" name="year" type="text" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="{{data['year']}}">
           </div>
+
           <!--name-->
+           <div class="govuk-form-group govuk-!-margin-top-0">
+              <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="width-2">
+                Name on card
+              </label></h3>
+              <span id="nameError" class="govuk-error-message govuk-!-display-none pcnError">
+                <span class="govuk-visually-hidden">Error:</span> Enter the name as shown on your credit card
+              </span>
+              <input class="govuk-input govuk-!-width-one-half cardFields" id="userName" name="userName" type="text" value="{{data['userName']}}"></div>
+
         <!--    <div class="govuk-form-group govuk-!-margin-top-0">
               <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="width-2">
                 Name on card
@@ -320,15 +328,6 @@
                </div>
               </div>
 
-              <!--name-->
-               <div class="govuk-form-group govuk-!-margin-top-0">
-                  <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="width-2">
-                    Name on card
-                  </label></h3>
-                  <span id="nameError" class="govuk-error-message govuk-!-display-none pcnError">
-                    <span class="govuk-visually-hidden">Error:</span> Enter the name as shown on your credit card
-                  </span>
-                  <input class="govuk-input govuk-!-width-one-half cardFields" id="userName" name="userName" type="text" value="{{data['userName']}}"></div>
 
               <div class="govuk-form-group">
                 <label class="govuk-label govuk-label--m" for="width-10">
@@ -347,11 +346,43 @@
             Save my card details
           </label>
         </div>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-        <!-- Terms and Condition Starts-->
-        <div id="sign-in-hint" class="govuk-hint">
-        By continuing with payment, you agree to our Terms and Conditions and you confirm that you are happy for us to notify you of your crossings by the method you have agreed in your account.
-      </div>
+        <h1 class="govuk-heading-l">
+          <span class="govuk-caption-s"></span>
+          Communication
+        </h1>
+
+  <h3 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--m"  for="event-name">
+              Email address
+            </label></h3>
+          <div id="event-name-hint" class="govuk-hint">
+            We'll use this to email your payment confirmation plus any updates about your account. <br>For example: if your card needs updating
+          </div>
+          <span id="emailError" class="govuk-error-message govuk-!-display-none pcnError">
+            <span class="govuk-visually-hidden">Error:</span> Enter a valid email
+          </span>
+          <input class="govuk-input govuk-!-width-two-thirds cardFields" id="email" name="event-name" type="text">
+        </div>
+
+        <div class="govuk-form-group govuk-!-margin-top-4">
+           <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="width-2">
+              Phone number (Optional)
+            </label>
+          <div id="event-name-hint" class="govuk-hint">
+            We'll use this to send you account updates by text message
+          </div>
+          <span id="phoneError" class="govuk-error-message govuk-!-display-none pcnError">
+            <span class="govuk-visually-hidden">Error:</span> Enter a valid phone number
+          </span>
+          <input class="govuk-input govuk-!-width-two-thirds cardFields" id="phoneNumber" name="event-name" type="text">
+        </div>
+
+
+ <div id="sign-in-hint" class="govuk-hint">
+       <br>  By continuing with payment, you agree to our Terms and Conditions and you confirm that you are happy for us to notify you of your crossings by the method you have agreed in your account.
+     </div>
     <table>
       <tbody>
         <tr>
