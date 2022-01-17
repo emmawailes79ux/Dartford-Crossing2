@@ -182,7 +182,7 @@ let cars = [{
         regField.value = 'LO62NRO'
       }
       
-      if (regField.value.trim().length<=3||regField.value.trim().length>7||!cram.includes(regField.value.trim().toUpperCase())){
+      if (regField.value.replace(/\s/g, "").length<=3||regField.value.replace(/\s/g, "").length>7||!cram.includes(regField.value.replace(/\s/g, "").toUpperCase())){
         event.preventDefault()
         errorSummary.classList.remove("govuk-!-display-none")
         // regField.setAttribute("value", "Invalid VRN")
