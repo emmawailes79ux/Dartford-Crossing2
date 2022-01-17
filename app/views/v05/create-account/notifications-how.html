@@ -13,7 +13,7 @@ Get Notifications
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="payment1" method="post">
+      <form action="check-answers" method="post">
           <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Your account</h1>
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset" aria-describedby="notifications">
@@ -27,20 +27,26 @@ Get Notifications
               </div>
               <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="crossing" name="crossing" type="checkbox" value="crossing">
+                  <input class="govuk-checkboxes__input" id="email" name="email" type="checkbox" value="email">
                   <label class="govuk-label govuk-checkboxes__label" for="notifications1">
                    Email
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="crossing" name="crossing" type="checkbox" value="crossing">
+                  <input class="govuk-checkboxes__input" id="mobile" name="mobile" type="checkbox" value="mobile">
                   <label class="govuk-label govuk-checkboxes__label" for="notifications2">
-Mobile </label>
-                </div>
+                    Mobile </label>
+              <!--  </div>
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="crossing" name="crossing" type="checkbox" value="crossing">
                   <label class="govuk-label govuk-checkboxes__label" for="notifications2">
-                    Post</label>
+                    Post</label>-->
+                </div>
+                <p> or</p>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id=none name="none" type="checkbox" value="none">
+                  <label class="govuk-label govuk-checkboxes__label" for="notifications3">None
+                  </label>
                 </div>
 
               </div>
