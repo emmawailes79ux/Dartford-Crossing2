@@ -182,7 +182,7 @@ let cars = [{
         regField.value = 'LO62NRO'
       }
       
-      if (regField.value.trim().length<=3||regField.value.trim().length>7||!cram.includes(regField.value.trim().toUpperCase())){
+      if (regField.value.replace(/\s/g, "").length<=3||regField.value.replace(/\s/g, "").length>7||!cram.includes(regField.value.replace(/\s/g, "").toUpperCase())){
         event.preventDefault()
         errorSummary.classList.remove("govuk-!-display-none")
         // regField.setAttribute("value", "Invalid VRN")
@@ -307,7 +307,7 @@ let cars = [{
 
       <div class="govuk-header__content">
 
-        <a href="flow1" class="govuk-header__link govuk-header__link--service-name">
+        <a href="../start" class="govuk-header__link govuk-header__link--service-name">
           Pay for the Dartford Crossing (Dart Charge)
         </a>
 
@@ -331,9 +331,9 @@ let cars = [{
           </span>
         </p>
       </div>
-      <!-- <a href="flow3" class="govuk-back-link">Back</a> -->
+      <a href="#" class="govuk-back-link">Back</a>
     </div>
-   <div class="govuk-breadcrumbs">
+   <!--<div class="govuk-breadcrumbs">
     <ol class="govuk-breadcrumbs__list">
       <li class="govuk-breadcrumbs__list-item">
         <a class="govuk-breadcrumbs__link" href="../start">Home</a>
@@ -342,7 +342,7 @@ let cars = [{
         <a class="govuk-breadcrumbs__link" href="#">Resolve a penalty charge notice</a>
       </li>       
     </ol>
-  </div>  
+  </div>-->  
 
     <div title="Error" class="govuk-error-summary govuk-!-display-none" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
       <h2 class="govuk-error-summary__title" id="error-summary-title">
