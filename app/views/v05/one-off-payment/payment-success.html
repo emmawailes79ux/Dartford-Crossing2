@@ -14,7 +14,7 @@ Payment successfull
 
 <!--<a href="/home" style="cursor: pointer;" class="govuk-back-link">Home</a>-->
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds govuk-!-padding-top-5">
+    <div class="govuk-grid-column-two-thirds govuk-!-padding-top-0">
         <div class="govuk-panel govuk-panel--confirmation">
             <h1 class="govuk-panel__title">
                 Payment successful
@@ -94,7 +94,9 @@ Payment successfull
     </div>
 </div>
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-two-thirds"><br>
+        <h3 class = "govuk-heading-m">Thank you</h3>
+        <p class = "govuk-body">All money collected by the Dart Charge goes towards road and transport improvements. Around 50 million crossings are successfully paid for each year.</p>
         <p class="govuk-body">Payments for future crossings are valid for 12 months from purchase. </p>
         <div class="govuk-inset-text" id="notifOptInset">
             {{data['notifOptMssg']|safe}}
