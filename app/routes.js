@@ -208,7 +208,7 @@ router.get("/v05/resolve-pcn/flow5a", function (req, res) {
 });
 
 router.get("/v05/resolve-pcn/flow5details", function (req, res) {
-  res.redirect(`/v05/resolve-pcn//pcnDetails`);
+  res.redirect(`/v05/resolve-pcn/pcnDetails`);
 });
 
 router.get("/v05/resolve-pcn/flow6", function (req, res) {
